@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Admin</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Tableau de Bord Admin</h1>
+            <button id="logoutBtn" class="logout-button">Déconnexion</button>
+        </header>
+        <main>
+            <h2>Bienvenue, Admin !</h2>
+            <div class="dashboard-content">
+                <div class="card">
+                    <h3>Aperçu de l'Administration</h3>
+                    <p>Aperçu des statistiques du système et des activités des utilisateurs.</p>
+                </div>
+                <div class="card">
+                    <h3>Aperçu des Clients</h3>
+                    <p>Outils pour gérer les comptes utilisateurs et les autorisations.</p>
+                </div>
+            </div>
+            <div class="dashboard">
+                <iframe title="Admin" src="https://app.powerbi.com/view?r=eyJrIjoiODQ3YWQ0MTYtMjBmNy00YzVhLTk0MTEtMDc1NTU0MDk5YzBlIiwidCI6ImRiZDY2NjRkLTRlYjktNDZlYi05OWQ4LTVjNDNiYTE1M2M2MSIsImMiOjl9" frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+nom;age;genre;solde enmillion;type compte;anné douverture;anné fermeture;;motif
+ali;18;M;25;épargne;2020;2021;;Changement de banque
+Ahmed;18;M;25;épargne;2020;2021;;Mauvais service à la clientèle
+Mohamed;18;M;25;épargne;2020;2021;;Frais bancaires élevés
+Amira;18;M;25;épargne;2020;2021;;Déménagement à l'étranger
+Fatma;18;M;25;épargne;2020;2021;;Décès du titulaire du compte
+Hichem;18;M;25;épargne;2020;2021;;Fusion avec une autre banque
+Sami;18;M;25;épargne;2020;2021;;Services en ligne insatisfaisants
+Amina;18;M;25;épargne;2020;2021;;Insatisfaction générale
+Marwa;18;M;25;épargne;2020;2021;;Transfert vers une banque en ligne
+Rami;18;M;25;épargne;2020;2021;;Manque d'options de gestion de compte
+Nour;18;M;25;épargne;2020;2021;;Réductions de services
+Selma;18;M;25;épargne;2020;2021;;Politiques de prêt restrictives
+Youssef;18;M;25;épargne;2020;2021;;Mauvaises expériences passées
+Meriem;18;M;50;épargne;2020;2021;;Préférence pour une banque coopérative
+Anis;18;M;50;épargne;2020;2021;;Fermeture de succursale locale
+Nada;18;M;50;épargne;2021;2024;;Manque de succursales pratiques
+Mehdi;18;M;50;épargne;2021;2024;;Changement de situation financière
+Salma;18;M;50;épargne;2021;2024;;Fraude sur le compte
+Ali;18;M;50;épargne;2021;2024;;Perte de chéquiers ou de cartes
+Ines;18;M;50;épargne;2021;2024;;Conflit avec le personnel bancaire
+Wassim;18;M;50;épargne;2021;2024;;Utilisation limitée du compte
+Oumayma;30;M;50;épargne;2021;2024;;Migration vers une banque numérique
+Sofiane;45;F;50;épargne;2021;2024;;Préférence pour une institution éthique
+Safa;45;F;50;épargne;2021;2024;;Changement dans les politiques bancaires
+Ayoub;45;F;50;épargne;2021;2024;;Fusion avec une coopérative de crédit
+Leila;45;F;50;épargne;2021;2024;;Voyage fréquent à l'étranger
+Aymen;45;F;50;épargne;2021;2024;;Préférence pour une banque régionale
+Manel;45;F;150;épargne;2021;2024;;Préférence pour une banque en ligne internationale
+Chaima;45;F;150;épargne;2021;2024;;Manque de produits financiers diversifiés
+Bilal;45;F;150;épargne;2021;2024;;Désir d'une banque plus écologique
+Nesrine;45;F;150;épargne;2021;2024;;Conversion en institution financière islamique
+Hatem;45;F;150;épargne;2021;2024;;Changement de réglementation fiscale
+Sabrine;45;F;150;épargne;2021;2024;;Changement dans les relations commerciales
+Chaker;45;F;150;épargne;2021;2024;;Accès limité aux services bancaires
+Amal;45;F;150;épargne;2021;2024;;Intention de regrouper les comptes
+Fares;45;F;150;épargne;2021;2024;;Évitement de risques de sécurité
+Rania;45;F;150;épargne;2021;2024;;Volonté de limiter l'empreinte bancaire
+Karim;45;F;150;épargne;2021;2024;;Changement dans la politique de service
+Rahma;45;F;150;épargne;2021;2022;;Exigences de confidentialité non respectées
+Walid;45;F;150;épargne;2021;2022;;Décision de centraliser les finances
+Sana;45;F;150;épargne;2021;2022;;Passage à une banque avec des avantages spécifiques
+Hamza;45;F;150;épargne;2021;2022;;Préférence pour un meilleur service en ligne
+Myriam;45;F;150;épargne;2021;2022;;Retrait de fonds du pays
+Mouna;45;F;150;courant;2021;2022;;Préparation à la retraite à l'étranger
+Adel;45;F;150;courant;2021;2022;;Changement de banque
+Cyrine;45;F;150;courant;2021;2022;;Mauvais service à la clientèle
+Yassine;45;F;150;courant;2021;2022;;Frais bancaires élevés
+Asma;45;F;150;courant;2021;2022;;Déménagement à l'étranger
+Anouar;45;F;150;courant;2021;2022;;Décès du titulaire du compte
+Feriel;45;F;150;courant;2021;2022;;Fusion avec une autre banque
+Ghazi;45;F;150;courant;2021;2022;;Services en ligne insatisfaisants
+Sarra;45;F;150;courant;2021;2022;;Insatisfaction générale
+Ramzi;45;F;150;courant;2021;2022;;Transfert vers une banque en ligne
+Aicha;45;F;70;courant;2021;2022;;Manque d'options de gestion de compte
+Mehdi;45;F;70;courant;2021;2022;;Réductions de services
+Nadia;42;F;70;courant;2021;2022;;Politiques de prêt restrictives
+Skander;43;F;70;courant;2021;2022;;Mauvaises expériences passées
+Amira;44;F;70;courant;2021;2022;;Préférence pour une banque coopérative
+Maher;45;F;70;courant;2021;2021;;Fermeture de succursale locale
+Zaineb;46;F;70;courant;2021;2021;;Manque de succursales pratiques
+Moncef;47;F;70;courant;2021;2021;;Changement de situation financière
+Rawia;48;F;70;courant;2021;2021;;Fraude sur le compte
+Med Amine;49;F;70;courant;2021;2021;;Perte de chéquiers ou de cartes
+Yosra;50;F;70;courant;2021;2021;;Conflit avec le personnel bancaire
+Anis;51;F;70;courant;2021;2021;;Utilisation limitée du compte
+Kenza;52;F;70;courant;2021;2021;;Migration vers une banque numérique
+Bassem;53;F;70;courant;2021;2021;;Préférence pour une institution éthique
+Khadija;54;F;70;courant;2021;2021;;Changement dans les politiques bancaires
+Marwen;55;F;70;courant;2021;2021;;Fusion avec une coopérative de crédit
+Noura;56;F;70;courant;2021;2021;;Voyage fréquent à l'étranger
+Sofien;57;F;70;courant;2021;2021;;Préférence pour une banque régionale
+Sabrine;58;F;70;courant;2021;2021;;Préférence pour une banque en ligne internationale
+Houssem;59;F;70;courant;2021;2021;;Manque de produits financiers diversifiés
+Rym;60;F;70;courant;2021;2021;;Désir d'une banque plus écologique
+Oussama;61;F;70;courant;2021;2021;;Conversion en institution financière islamique
+Ines;62;F;70;courant;2021;2021;;Changement de réglementation fiscale
+Chiraz;63;F;70;courant;2021;2021;;Changement dans les relations commerciales
+Aymen;64;F;70;courant;2021;2021;;Accès limité aux services bancaires
+Zohra;65;F;70;courant;2021;2021;;Intention de regrouper les comptes
+Hedi;66;F;70;courant;2021;2021;;Évitement de risques de sécurité
+Amira;67;F;70;courant;2021;2021;;Volonté de limiter l'empreinte bancaire
+Slim;68;F;70;courant;2021;2021;;Changement dans la politique de service
+Hajer;69;M;25;courant;2021;2021;;Exigences de confidentialité non respectées
+Mohamed Ali;70;M;25;courant;2022;2023;;Décision de centraliser les finances
+Asma;71;M;25;courant;2023;2024;;Passage à une banque avec des avantages spécifiques
+Samir;72;M;25;courant;2023;2024;;Préférence pour un meilleur service en ligne
+Nesrine;50;M;25;courant;2023;2024;;Retrait de fonds du pays
+Hassen;50;M;25;courant;2023;2024;;Préparation à la retraite à l'étranger
+Aya;50;M;25;courant;2023;2024;;Préparation à la retraite à l'étranger
+Chokri;50;M;25;courant;2023;2024;;Préparation à la retraite à l'étranger
+Manel;50;M;25;courant;2023;2024;;Préparation à la retraite à l'étranger
+Mehdi;50;M;25;courant;2023;2024;;Préparation à la retraite à l'étranger
+Imen;50;M;25;courant;2023;2024;;Préparation à la retraite à l'étranger
+Ahmed;27;M;25;courant;2023;2024;;Préparation à la retraite à l'étranger
+Jihene;27;M;25;courant;2023;2024;;Préparation à la retraite à l'étranger
+Hamdi;27;M;25;courant;2023;2024;;Préparation à la retraite à l'étranger
+Meriem;27;M;25;courant;2023;2024;;Préparation à la retraite à l'étranger
+Amine;27;M;25;courant;2023;2024;;Préparation à la retraite à l'étranger
+Amel;27;M;30;courant;2023;2024;;Préparation à la retraite à l'étranger
+Khaled;27;M;30;courant;2023;2024;;Préparation à la retraite à l'étranger
+Yasmine;27;M;30;courant;2023;2024;;Préparation à la retraite à l'étranger

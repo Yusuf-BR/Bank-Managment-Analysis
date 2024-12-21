@@ -1,0 +1,856 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/4/2024 10:38:05 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-58MFL3I"
+  DTS:CreatorName="DESKTOP-58MFL3I\PC"
+  DTS:DTSID="{F5232B89-702F-4938-B899-6827C5C318E3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{91E9AF9C-460E-4A13-BF73-9DBA35A72316}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{527F49AE-A11F-46F0-95EA-AA689E1BC16A}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.PFA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=PFA;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{527F49AE-A11F-46F0-95EA-AA689E1BC16A}DESKTOP-58MFL3I\SQLEXPRESS.PFA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\using lookup"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{6C7B89D3-849F-4A4B-B910-DA52F23E1B36}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="using lookup"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\using lookup\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[lookupresult]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\using lookup\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[isconfirme]"
+                      cachedDataType="bool"
+                      cachedName="isconfirme"
+                      externalMetadataColumnId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[isconfirme]"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[isconfirme]" />
+                    <inputColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[id]"
+                      cachedDataType="i2"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[id]"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[id]" />
+                    <inputColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[code_agent]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="code_agent"
+                      externalMetadataColumnId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[code_agent]"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[code_agent]" />
+                    <inputColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[email]"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[email]" />
+                    <inputColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[password]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="password"
+                      externalMetadataColumnId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[password]"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[password]" />
+                    <inputColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[role]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="role"
+                      externalMetadataColumnId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[role]"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[role]" />
+                    <inputColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[username]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="username"
+                      externalMetadataColumnId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Source OLE DB.username]"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[username]" />
+                    <inputColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[username1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="username"
+                      externalMetadataColumnId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Recherche.username]"
+                      lineageId="Package\using lookup\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[username]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[isconfirme]"
+                      dataType="bool"
+                      name="isconfirme" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[id]"
+                      dataType="i2"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[code_agent]"
+                      dataType="wstr"
+                      length="50"
+                      name="code_agent" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="50"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[password]"
+                      dataType="wstr"
+                      length="100"
+                      name="password" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[role]"
+                      dataType="wstr"
+                      length="50"
+                      name="role" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Source OLE DB.username]"
+                      dataType="wstr"
+                      length="50"
+                      name="Source OLE DB.username" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Recherche.username]"
+                      dataType="wstr"
+                      length="50"
+                      name="Recherche.username" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\using lookup\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\using lookup\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\using lookup\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\using lookup\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\using lookup\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\using lookup\Recherche"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from agent
+where id=1055</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from agent
+where id=1055) [refTable]
+where [refTable].[isconfirme] = ? and [refTable].[id] = ? and [refTable].[code_agent] = ? and [refTable].[email] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="isconfirme" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="id" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="code_agent" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="email" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="password" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="photo" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="role" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="username" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="password_reset_token" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[isconfirme]};#{Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[id]};#{Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[code_agent]};#{Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[email]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\using lookup\Recherche.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\using lookup\Recherche.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\using lookup\Recherche.Inputs[Entrée de recherche].Columns[isconfirme]"
+                      cachedDataType="bool"
+                      cachedName="isconfirme"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[isconfirme]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">isconfirme</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\using lookup\Recherche.Inputs[Entrée de recherche].Columns[id]"
+                      cachedDataType="i2"
+                      cachedName="id"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\using lookup\Recherche.Inputs[Entrée de recherche].Columns[code_agent]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="code_agent"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[code_agent]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">code_agent</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\using lookup\Recherche.Inputs[Entrée de recherche].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="email"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[email]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">email</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\using lookup\Recherche.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\using lookup\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\using lookup\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[username]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      length="50"
+                      lineageId="Package\using lookup\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[username]"
+                      name="username"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">username</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\using lookup\Recherche.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\using lookup\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\using lookup\Recherche.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\using lookup\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\using lookup\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\using lookup\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\using lookup\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\using lookup\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\using lookup\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[agent]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\using lookup\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[isconfirme]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[isconfirme]"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[isconfirme]"
+                      name="isconfirme"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[id]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[id]"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[code_agent]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[code_agent]"
+                      length="50"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[code_agent]"
+                      name="code_agent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[email]"
+                      length="50"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[password]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[password]"
+                      length="100"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[password]"
+                      name="password"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[role]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[role]"
+                      length="50"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[role]"
+                      name="role"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[username]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[username]"
+                      length="50"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[username]"
+                      name="username"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[isconfirme]"
+                      dataType="bool"
+                      name="isconfirme" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[id]"
+                      dataType="i2"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[code_agent]"
+                      dataType="wstr"
+                      length="50"
+                      name="code_agent" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="50"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[password]"
+                      dataType="wstr"
+                      length="100"
+                      name="password" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[photo]"
+                      dataType="wstr"
+                      length="50"
+                      name="photo" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[role]"
+                      dataType="wstr"
+                      length="50"
+                      name="role" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[username]"
+                      dataType="wstr"
+                      length="50"
+                      name="username" />
+                    <externalMetadataColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[password_reset_token]"
+                      dataType="wstr"
+                      length="50"
+                      name="password_reset_token" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[isconfirme]"
+                      dataType="bool"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[isconfirme]"
+                      name="isconfirme" />
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[id]"
+                      dataType="i2"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[code_agent]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[code_agent]"
+                      name="code_agent" />
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[email]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[password]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[password]"
+                      name="password" />
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[role]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[role]"
+                      name="role" />
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[username]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[username]"
+                      name="username" />
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\using lookup\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\using lookup.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\using lookup\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\using lookup\Recherche.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\using lookup.Paths[Sortie de source OLE DB]"
+              endId="Package\using lookup\Recherche.Inputs[Entrée de recherche]"
+              name="Sortie de source OLE DB"
+              startId="Package\using lookup\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\using lookup"
+          TopLeft="325.833315530586,129.999999095996" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\using lookup">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\using lookup\Source OLE DB"
+          TopLeft="391.666645266944,74.5333328150378" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\using lookup\Destination OLE DB"
+          TopLeft="334.166648408606,271.266664780312" />
+        <NodeLayout
+          Size="128.8,41.6"
+          Id="Package\using lookup\Recherche"
+          TopLeft="351.666647452448,187.266665503515" />
+        <EdgeLayout
+          Id="Package\using lookup.Paths[Sortie de source OLE DB]"
+          TopLeft="467.666645266944,116.133332815038">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-51.5999978144964,71.1333326884773"
+              Start="0,0"
+              End="-51.5999978144964,63.6333326884773">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5666663442387" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5666663442387"
+                    Point2="0,35.5666663442387"
+                    Point3="-4,35.5666663442387" />
+                  <mssgle:LineSegment
+                    End="-47.5999978144964,35.5666663442387" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-47.5999978144964,35.5666663442387"
+                    Point2="-51.5999978144964,35.5666663442387"
+                    Point3="-51.5999978144964,39.5666663442387" />
+                  <mssgle:LineSegment
+                    End="-51.5999978144964,63.6333326884773" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\using lookup.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="417.916647930527,228.866665503515">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.399999276797"
+              Start="0,0"
+              End="0,34.899999276797">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.899999276797" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.67701171875,11.6453121383985,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\using lookup\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\using lookup\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\using lookup\Recherche">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

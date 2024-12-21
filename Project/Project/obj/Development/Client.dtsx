@@ -1,0 +1,2268 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/15/2024 10:44:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-58MFL3I"
+  DTS:CreatorName="DESKTOP-58MFL3I\PC"
+  DTS:DTSID="{9D66D575-314B-41DD-89D3-1497934F540D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{253580BD-0C7D-41CD-B008-D2A0EEB7027D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9C2193BD-6C87-475B-8796-8D8A3CA0A873}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.Project">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=Project;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{9C2193BD-6C87-475B-8796-8D8A3CA0A873}DESKTOP-58MFL3I\SQLEXPRESS.Project;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E39018C8-E0EE-4393-827F-D7EA69725012}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.src">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=src;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{E39018C8-E0EE-4393-827F-D7EA69725012}DESKTOP-58MFL3I\SQLEXPRESS.src;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Correct Mismatched Gender"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{A550AAD9-3A3C-494B-BB55-9C469828A96F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Correct Mismatched Gender"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Correct Mismatched Gender\Colonne dérivée"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Colonne dérivée"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Correct Mismatched Gender\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[genre correcte]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      name="genre correcte"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[ISNULL](#{Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Gender]}) ? #{Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[genre]} : #{Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Gender]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(Gender) ? [genre correcte] : Gender</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Gender]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Correct Mismatched Gender\Colonne dérivée.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Correct Mismatched Gender\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Correct Mismatched Gender\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Correct Mismatched Gender\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Correct Mismatched Gender\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Correct Mismatched Gender\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Correct Mismatched Gender\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Clt]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Correct Mismatched Gender\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[nom]" />
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[age]"
+                      cachedDataType="r8"
+                      cachedName="age"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[age]"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[age]" />
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[solde enmillion]"
+                      cachedDataType="r8"
+                      cachedName="solde enmillion"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[solde enmillion]"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[solde enmillion]" />
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[type compte]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type compte"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type compte]"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[type compte]" />
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[motif]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="motif"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[motif]"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[motif]" />
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[genre correcte]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre correcte"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[genre]"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[genre correcte]" />
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[anné douverture]"
+                      cachedDataType="r8"
+                      cachedName="anné douverture"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[année douverture]"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[anné douverture]" />
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[anné fermeture]"
+                      cachedDataType="r8"
+                      cachedName="anné fermeture"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[année fermeture]"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[anné fermeture]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[solde enmillion]"
+                      dataType="r8"
+                      name="solde enmillion" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type compte]"
+                      dataType="wstr"
+                      length="255"
+                      name="type compte" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[année douverture]"
+                      dataType="r8"
+                      name="année douverture" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[année fermeture]"
+                      dataType="r8"
+                      name="année fermeture" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[motif]"
+                      dataType="wstr"
+                      length="255"
+                      name="motif" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Correct Mismatched Gender\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Correct Mismatched Gender\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Correct Mismatched Gender\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Correct Mismatched Gender\Fractionnement conditionnel"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Fractionnement conditionnel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Achemine des lignes de données vers différentes sorties, selon le contexte des données. Utilisez des conditions (expressions SSIS) pour spécifier les lignes qui seront acheminées. Par exemple, séparez les enregistrements qui doivent être nettoyés de ceux qui sont prêts à être chargés ou acheminez uniquement un sous-ensemble d'enregistrements."
+              name="Fractionnement conditionnel"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+                  description="Entrée vers la transformation de fractionnement conditionnel"
+                  name="Entrée de fractionnement conditionnel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[genre]" />
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Gender]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Outputs[Mismatched Gender]"
+                  description="Sortie 1 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Mismatched Gender"
+                  synchronousInputId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">#{Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[genre]} != #{Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Gender]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">genre != Gender</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Outputs[Correct Gender]"
+                  description="Sortie 2 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Correct Gender"
+                  synchronousInputId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">#{Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[genre]} == #{Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Gender]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">genre == Gender</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Outputs[Sortie par défaut de fractionnement conditionnel]"
+                  description="Sortie par défaut de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  name="Sortie par défaut de fractionnement conditionnel"
+                  synchronousInputId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel]"
+                  description="Sortie d'erreur de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de fractionnement conditionnel"
+                  synchronousInputId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Correct Mismatched Gender\Mismatched Columns"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Mismatched Columns"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Correct Mismatched Gender\Mismatched Columns.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Mismatched Columns.Inputs[Entrée de colonne dérivée].Columns[genre fausse]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      name="genre fausse"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[ISNULL](#{Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Gender]}) ? #{Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[genre]} : #{Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Gender]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(Gender) ? [genre fausse] : Gender</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Mismatched Columns.Inputs[Entrée de colonne dérivée].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Gender]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Correct Mismatched Gender\Mismatched Columns.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Correct Mismatched Gender\Mismatched Columns.Inputs[Entrée de colonne dérivée]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Correct Mismatched Gender\Mismatched Columns.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Correct Mismatched Gender\Mismatched Columns.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Mismatched Columns.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Correct Mismatched Gender\Mismatched Columns.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Mismatched Columns.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Correct Mismatched Gender\Mismatched Columns.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Correct Mismatched Gender\Recherche"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[CorrectNameandSEX]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[CorrectNameandSEX]) [refTable]
+where [refTable].[Name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sex" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Correct Mismatched Gender\Recherche.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Correct Mismatched Gender\Recherche.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Recherche.Inputs[Entrée de recherche].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Correct Mismatched Gender\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      length="1"
+                      lineageId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">Sex</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Correct Mismatched Gender\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Correct Mismatched Gender\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Correct Mismatched Gender\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Feuil2$]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Correct Mismatched Gender\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      length="255"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      name="nom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[age]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[age]"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[age]"
+                      name="age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      length="255"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      name="genre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[solde enmillion]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[solde enmillion]"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[solde enmillion]"
+                      name="solde enmillion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[type compte]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[type compte]"
+                      length="255"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[type compte]"
+                      name="type compte"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[anné douverture]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[anné douverture]"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[anné douverture]"
+                      name="anné douverture"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[anné fermeture]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[anné fermeture]"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[anné fermeture]"
+                      name="anné fermeture"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[motif]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[motif]"
+                      length="255"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[motif]"
+                      name="motif"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[solde enmillion]"
+                      dataType="r8"
+                      name="solde enmillion" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[type compte]"
+                      dataType="wstr"
+                      length="255"
+                      name="type compte" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[anné douverture]"
+                      dataType="r8"
+                      name="anné douverture" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[anné fermeture]"
+                      dataType="r8"
+                      name="anné fermeture" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[F8]"
+                      dataType="wstr"
+                      length="255"
+                      name="F8" />
+                    <externalMetadataColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[motif]"
+                      dataType="wstr"
+                      length="255"
+                      name="motif" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      name="nom" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[age]"
+                      dataType="r8"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[age]"
+                      name="age" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      name="genre" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[solde enmillion]"
+                      dataType="r8"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[solde enmillion]"
+                      name="solde enmillion" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[type compte]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[type compte]"
+                      name="type compte" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[anné douverture]"
+                      dataType="r8"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[anné douverture]"
+                      name="anné douverture" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[anné fermeture]"
+                      dataType="r8"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[anné fermeture]"
+                      name="anné fermeture" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[motif]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[motif]"
+                      name="motif" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Correct Mismatched Gender\Unir tout"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Unir tout;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine des lignes de plusieurs flux de données sans effectuer de tri. Par exemple, rajoutez des lignes à un flux de données après correction des erreurs. Si le tri est important, nous recommandons l'utilisation de la transformation de fusion."
+              name="Unir tout"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Unir tout entrée 1]"
+                  name="Unir tout entrée 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Unir tout entrée 1].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[nom]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Unir tout entrée 1].Columns[age]"
+                      cachedDataType="r8"
+                      cachedName="age"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[age]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[age]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Unir tout entrée 1].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[genre]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[genre correcte]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Unir tout entrée 1].Columns[solde enmillion]"
+                      cachedDataType="r8"
+                      cachedName="solde enmillion"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[solde enmillion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[solde enmillion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Unir tout entrée 1].Columns[type compte]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type compte"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[type compte]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[type compte]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Unir tout entrée 1].Columns[anné douverture]"
+                      cachedDataType="r8"
+                      cachedName="anné douverture"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[anné douverture]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[anné douverture]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Unir tout entrée 1].Columns[anné fermeture]"
+                      cachedDataType="r8"
+                      cachedName="anné fermeture"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[anné fermeture]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[anné fermeture]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Unir tout entrée 1].Columns[motif]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="motif"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[motif]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[motif]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Unir tout entrée 1].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Gender]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[Gender]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Entrée Union All 1]"
+                  hasSideEffects="true"
+                  name="Entrée Union All 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Entrée Union All 1].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[nom]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Entrée Union All 1].Columns[age]"
+                      cachedDataType="r8"
+                      cachedName="age"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[age]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[age]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Entrée Union All 1].Columns[solde enmillion]"
+                      cachedDataType="r8"
+                      cachedName="solde enmillion"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[solde enmillion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[solde enmillion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Entrée Union All 1].Columns[type compte]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type compte"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[type compte]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[type compte]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Entrée Union All 1].Columns[anné douverture]"
+                      cachedDataType="r8"
+                      cachedName="anné douverture"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[anné douverture]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[anné douverture]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Entrée Union All 1].Columns[anné fermeture]"
+                      cachedDataType="r8"
+                      cachedName="anné fermeture"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[anné fermeture]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[anné fermeture]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Entrée Union All 1].Columns[motif]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="motif"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[motif]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[motif]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Entrée Union All 1].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Gender]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[Gender]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Entrée Union All 1].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      lineageId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[genre]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[genre correcte]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Correct Mismatched Gender\Unir tout.Inputs[Entrée Union All 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Entrée Union All 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1]"
+                  name="Unir tout sortie 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[nom]"
+                      name="nom" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[age]"
+                      dataType="r8"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[age]"
+                      name="age" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[genre correcte]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[genre correcte]"
+                      name="genre correcte" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[solde enmillion]"
+                      dataType="r8"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[solde enmillion]"
+                      name="solde enmillion" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[type compte]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[type compte]"
+                      name="type compte" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[anné douverture]"
+                      dataType="r8"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[anné douverture]"
+                      name="anné douverture" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[anné fermeture]"
+                      dataType="r8"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[anné fermeture]"
+                      name="anné fermeture" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[motif]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[motif]"
+                      name="motif" />
+                    <outputColumn
+                      refId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1].Columns[Gender]"
+                      name="Gender" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Correct Mismatched Gender.Paths[Correct Gender]"
+              endId="Package\Correct Mismatched Gender\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+              name="Correct Gender"
+              startId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Outputs[Correct Gender]" />
+            <path
+              refId="Package\Correct Mismatched Gender.Paths[Mismatched Gender]"
+              endId="Package\Correct Mismatched Gender\Mismatched Columns.Inputs[Entrée de colonne dérivée]"
+              name="Mismatched Gender"
+              startId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Outputs[Mismatched Gender]" />
+            <path
+              refId="Package\Correct Mismatched Gender.Paths[Sortie de colonne dérivée]"
+              endId="Package\Correct Mismatched Gender\Unir tout.Inputs[Unir tout entrée 1]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Correct Mismatched Gender\Colonne dérivée.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Correct Mismatched Gender.Paths[Sortie de colonne dérivée1]"
+              endId="Package\Correct Mismatched Gender\Unir tout.Inputs[Entrée Union All 1]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Correct Mismatched Gender\Mismatched Columns.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Correct Mismatched Gender.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\Correct Mismatched Gender\Fractionnement conditionnel.Inputs[Entrée de fractionnement conditionnel]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Correct Mismatched Gender\Recherche.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Correct Mismatched Gender.Paths[Sortie de source OLE DB]"
+              endId="Package\Correct Mismatched Gender\Recherche.Inputs[Entrée de recherche]"
+              name="Sortie de source OLE DB"
+              startId="Package\Correct Mismatched Gender\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Correct Mismatched Gender.Paths[Unir tout sortie 1]"
+              endId="Package\Correct Mismatched Gender\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Unir tout sortie 1"
+              startId="Package\Correct Mismatched Gender\Unir tout.Outputs[Unir tout sortie 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Final Clients DIM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{C95E5234-A9B8-4333-AB95-C75DB3F9A050}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Final Clients DIM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Create Final Clients DIM\Create Final Clients DIM"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Create Final Clients DIM"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Client]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Create Final Clients DIM\Create Final Clients DIM.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[nom]" />
+                    <inputColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].Columns[age]"
+                      cachedDataType="r8"
+                      cachedName="age"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[age]"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[age]" />
+                    <inputColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[genre]"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[genre]" />
+                    <inputColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].Columns[type compte]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type compte"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[type compte]"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[type compte]" />
+                    <inputColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].Columns[année douverture]"
+                      cachedDataType="r8"
+                      cachedName="année douverture"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[année douverture]"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[année douverture]" />
+                    <inputColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].Columns[année fermeture]"
+                      cachedDataType="r8"
+                      cachedName="année fermeture"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[année fermeture]"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[année fermeture]" />
+                    <inputColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].Columns[motif]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="motif"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[motif]"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[motif]" />
+                    <inputColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].Columns[solde enmillion]"
+                      cachedDataType="r8"
+                      cachedName="solde enmillion"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[solde en million]"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[solde enmillion]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[ID Clt]"
+                      dataType="i4"
+                      name="ID Clt" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[solde en million]"
+                      dataType="r8"
+                      name="solde en million" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[type compte]"
+                      dataType="wstr"
+                      length="255"
+                      name="type compte" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[année douverture]"
+                      dataType="r8"
+                      name="année douverture" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[année fermeture]"
+                      dataType="r8"
+                      name="année fermeture" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB].ExternalColumns[motif]"
+                      dataType="wstr"
+                      length="255"
+                      name="motif" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Create Final Clients DIM\Create Final Clients DIM.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Create Final Clients DIM\Create Final Clients DIM.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Create Final Clients DIM.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Create Final Clients DIM\Create Final Clients DIM.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Create Final Clients DIM\Load Fine Data for Clients"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Load Fine Data for Clients"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Clt]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      length="255"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      name="nom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[age]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[age]"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[age]"
+                      name="age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      length="255"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      name="genre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[solde enmillion]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[solde enmillion]"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[solde enmillion]"
+                      name="solde enmillion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[type compte]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[type compte]"
+                      length="255"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[type compte]"
+                      name="type compte"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[année douverture]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[année douverture]"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[année douverture]"
+                      name="année douverture"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[année fermeture]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[année fermeture]"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[année fermeture]"
+                      name="année fermeture"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[motif]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[motif]"
+                      length="255"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].Columns[motif]"
+                      name="motif"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[solde enmillion]"
+                      dataType="r8"
+                      name="solde enmillion" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[type compte]"
+                      dataType="wstr"
+                      length="255"
+                      name="type compte" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[année douverture]"
+                      dataType="r8"
+                      name="année douverture" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[année fermeture]"
+                      dataType="r8"
+                      name="année fermeture" />
+                    <externalMetadataColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB].ExternalColumns[motif]"
+                      dataType="wstr"
+                      length="255"
+                      name="motif" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      name="nom" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[age]"
+                      dataType="r8"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[age]"
+                      name="age" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      name="genre" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[solde enmillion]"
+                      dataType="r8"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[solde enmillion]"
+                      name="solde enmillion" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[type compte]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[type compte]"
+                      name="type compte" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[année douverture]"
+                      dataType="r8"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[année douverture]"
+                      name="année douverture" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[année fermeture]"
+                      dataType="r8"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[année fermeture]"
+                      name="année fermeture" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[motif]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[motif]"
+                      name="motif" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Create Final Clients DIM.Paths[Sortie de source OLE DB]"
+              endId="Package\Create Final Clients DIM\Create Final Clients DIM.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Create Final Clients DIM\Load Fine Data for Clients.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{77AC8F75-ABD0-4248-9F72-7F93917095C5}"
+      DTS:From="Package\Correct Mismatched Gender"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Create Final Clients DIM" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\Correct Mismatched Gender"
+          TopLeft="336.666648272012,78.8666661182377" />
+        <NodeLayout
+          Size="191.2,41.6"
+          Id="Package\Create Final Clients DIM"
+          TopLeft="418.333310476609,180.266665413115" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="441.066648272012,120.466666118238">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.8666622045968,59.7999992948771"
+              Start="0,0"
+              End="72.8666622045968,52.2999992948771">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.8999996474385" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.8999996474385"
+                    Point2="0,29.8999996474385"
+                    Point3="4,29.8999996474385" />
+                  <mssgle:LineSegment
+                    End="68.8666622045968,29.8999996474385" />
+                  <mssgle:CubicBezierSegment
+                    Point1="68.8666622045968,29.8999996474385"
+                    Point2="72.8666622045968,29.8999996474385"
+                    Point3="72.8666622045968,33.8999996474385" />
+                  <mssgle:LineSegment
+                    End="72.8666622045968,52.2999992948771" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Correct Mismatched Gender">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Correct Mismatched Gender\Source OLE DB"
+          TopLeft="321.666649091576,34.666666425599" />
+        <NodeLayout
+          Size="128.8,41.6"
+          Id="Package\Correct Mismatched Gender\Recherche"
+          TopLeft="409.166644310787,151.666665611996" />
+        <EdgeLayout
+          Id="Package\Correct Mismatched Gender.Paths[Sortie de source OLE DB]"
+          TopLeft="397.666649091576,76.266666425599">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.899995219211,75.3999991863966"
+              Start="0,0"
+              End="75.899995219211,67.8999991863966">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.6999995931983" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.6999995931983"
+                    Point2="0,37.6999995931983"
+                    Point3="4,37.6999995931983" />
+                  <mssgle:LineSegment
+                    End="71.899995219211,37.6999995931983" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71.899995219211,37.6999995931983"
+                    Point2="75.899995219211,37.6999995931983"
+                    Point3="75.899995219211,41.6999995931983" />
+                  <mssgle:LineSegment
+                    End="75.899995219211,67.8999991863966" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Correct Mismatched Gender\Mismatched Columns"
+          TopLeft="507.499972271424,326.733331061271" />
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\Correct Mismatched Gender\Fractionnement conditionnel"
+          TopLeft="385.83331225233,238.799998589754" />
+        <EdgeLayout
+          Id="Package\Correct Mismatched Gender.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="473.566644310787,193.266665611996">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.6666679415437,45.5333329777585"
+              Start="0,0"
+              End="16.6666679415437,38.0333329777585">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7666664888793" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7666664888793"
+                    Point2="0,22.7666664888793"
+                    Point3="4,22.7666664888793" />
+                  <mssgle:LineSegment
+                    End="12.6666679415437,22.7666664888793" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.6666679415437,22.7666664888793"
+                    Point2="16.6666679415437,22.7666664888793"
+                    Point3="16.6666679415437,26.7666664888793" />
+                  <mssgle:LineSegment
+                    End="16.6666679415437,38.0333329777585" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-83.3436777479782,27.7666664888793,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Correct Mismatched Gender.Paths[Mismatched Gender]"
+          TopLeft="523.699978918997,280.399998589754">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.9999933524267,46.3333324715164"
+              Start="0,0"
+              End="72.9999933524267,38.8333324715164">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.7447398287808" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.7447398287808"
+                    Point2="0,18.7447398287808"
+                    Point3="4,18.7447398287808" />
+                  <mssgle:LineSegment
+                    End="68.9999933524267,18.7447398287808" />
+                  <mssgle:CubicBezierSegment
+                    Point1="68.9999933524267,18.7447398287808"
+                    Point2="72.9999933524267,18.7447398287808"
+                    Point3="72.9999933524267,22.7447398287808" />
+                  <mssgle:LineSegment
+                    End="72.9999933524267,38.8333324715164" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-7.83869473003665,23.7447398287808,88.6773828125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Correct Mismatched Gender\Colonne dérivée"
+          TopLeft="339.166648135418,325.199998083512" />
+        <EdgeLayout
+          Id="Package\Correct Mismatched Gender.Paths[Correct Gender]"
+          TopLeft="456.766645585664,280.399998589754">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-40.3999974502458,44.7999994937579"
+              Start="0,0"
+              End="-40.3999974502458,37.2999994937579">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.1244104415812" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.1244104415812"
+                    Point2="0,18.1244104415812"
+                    Point3="-4,18.1244104415812" />
+                  <mssgle:LineSegment
+                    End="-36.3999974502458,18.1244104415812" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-36.3999974502458,18.1244104415812"
+                    Point2="-40.3999974502458,18.1244104415812"
+                    Point3="-40.3999974502458,22.1244104415812" />
+                  <mssgle:LineSegment
+                    End="-40.3999974502458,37.2999994937579" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-54.4562096626229,23.1244104415812,68.512421875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="117.6,41.6"
+          Id="Package\Correct Mismatched Gender\Unir tout"
+          TopLeft="471.666640895937,391.533331133591" />
+        <EdgeLayout
+          Id="Package\Correct Mismatched Gender.Paths[Sortie de colonne dérivée]"
+          TopLeft="416.366648135418,366.799998083512">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.09999276052,24.7333330500787"
+              Start="0,0"
+              End="114.09999276052,17.2333330500787">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.36666652503936" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.36666652503936"
+                    Point2="0,12.3666665250394"
+                    Point3="4,12.3666665250394" />
+                  <mssgle:LineSegment
+                    End="110.09999276052,12.3666665250394" />
+                  <mssgle:CubicBezierSegment
+                    Point1="110.09999276052,12.3666665250394"
+                    Point2="114.09999276052,12.3666665250394"
+                    Point3="114.09999276052,16.3666665250394" />
+                  <mssgle:LineSegment
+                    End="114.09999276052,17.2333330500787" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Correct Mismatched Gender.Paths[Sortie de colonne dérivée1]"
+          TopLeft="596.699972271424,368.333331061271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-47.9666647088197,23.2000000723203"
+              Start="0,0"
+              End="-47.9666647088197,15.7000000723203">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.73315440522583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.73315440522583"
+                    Point2="0,13.7331544052258"
+                    Point3="-4,13.7331544052258" />
+                  <mssgle:LineSegment
+                    End="-43.9666647088197,13.7331544052258" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-43.9666647088197,13.7331544052258"
+                    Point2="-47.9666647088197,13.7331544052258"
+                    Point3="-47.9666647088197,17.7331544052258" />
+                  <mssgle:LineSegment
+                    End="-47.9666647088197,15.7000000723203" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Correct Mismatched Gender\Destination OLE DB"
+          TopLeft="454.166641852095,460.666664436791" />
+        <EdgeLayout
+          Id="Package\Correct Mismatched Gender.Paths[Unir tout sortie 1]"
+          TopLeft="530.466640895937,433.133331133591">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.30000095615787,27.5333333031999"
+              Start="0,0"
+              End="9.30000095615787,20.0333333031999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.76666665159996" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.76666665159996"
+                    Point2="0,13.7666666516"
+                    Point3="4,13.7666666516" />
+                  <mssgle:LineSegment
+                    End="5.30000095615787,13.7666666516" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.30000095615787,13.7666666516"
+                    Point2="9.30000095615787,13.7666666516"
+                    Point3="9.30000095615787,17.7666666516" />
+                  <mssgle:LineSegment
+                    End="9.30000095615787,20.0333333031999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Correct Mismatched Gender\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Correct Mismatched Gender\Recherche">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[CorrectNameandSEX]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Correct Mismatched Gender\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Create Final Clients DIM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="199.2,41.6"
+          Id="Package\Create Final Clients DIM\Load Fine Data for Clients"
+          TopLeft="493.999992638827,58.9999991208315" />
+        <NodeLayout
+          Size="191.2,41.6"
+          Id="Package\Create Final Clients DIM\Create Final Clients DIM"
+          TopLeft="529.999992102385,265.999996036291" />
+        <EdgeLayout
+          Id="Package\Create Final Clients DIM.Paths[Sortie de source OLE DB]"
+          TopLeft="593.599992638827,100.599999120832">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31.9999994635581,165.39999691546"
+              Start="0,0"
+              End="31.9999994635581,157.89999691546">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,78.6999984577298" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,78.6999984577298"
+                    Point2="0,82.6999984577298"
+                    Point3="4,82.6999984577298" />
+                  <mssgle:LineSegment
+                    End="27.9999994635581,82.6999984577298" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.9999994635581,82.6999984577298"
+                    Point2="31.9999994635581,82.6999984577298"
+                    Point3="31.9999994635581,86.6999984577298" />
+                  <mssgle:LineSegment
+                    End="31.9999994635581,157.89999691546" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Create Final Clients DIM\Load Fine Data for Clients">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Create Final Clients DIM\Create Final Clients DIM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

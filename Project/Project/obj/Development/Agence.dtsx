@@ -1,0 +1,768 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/15/2024 11:00:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-58MFL3I"
+  DTS:CreatorName="DESKTOP-58MFL3I\PC"
+  DTS:DTSID="{D1DA43F7-4849-49DF-A395-0A0873336FD0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{9CCB6E98-AB6A-4370-92BF-8C3E18F8238B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{945BF5DC-0223-442C-A1DE-44082A1851EC}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.Project">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=Project;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{945BF5DC-0223-442C-A1DE-44082A1851EC}DESKTOP-58MFL3I\SQLEXPRESS.Project;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E100B2BC-979D-4F7B-9174-D70A791A0F3F}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.src">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=src;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{E100B2BC-979D-4F7B-9174-D70A791A0F3F}DESKTOP-58MFL3I\SQLEXPRESS.src;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5C6ED1B0-F43A-4952-BB03-423729CFE50E}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.src 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=src;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{5C6ED1B0-F43A-4952-BB03-423729CFE50E}DESKTOP-58MFL3I\SQLEXPRESS.src 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Data and Sort by Agency IDs"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{B3235F36-EA9F-4866-9698-14ED07CA8EFB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Data and Sort by Agency IDs"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Data and Sort by Agency IDs\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Agence]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[region]"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Trier.Outputs[Sortie de tri].Columns[region]" />
+                    <inputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[nbr guishet]"
+                      cachedDataType="r8"
+                      cachedName="nbr guishet"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nbr guishet]"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Trier.Outputs[Sortie de tri].Columns[nbr guishet]" />
+                    <inputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[nbr de client]"
+                      cachedDataType="r8"
+                      cachedName="nbr de client"
+                      cachedSortKeyPosition="4"
+                      externalMetadataColumnId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nbr de client]"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Trier.Outputs[Sortie de tri].Columns[nbr de client]" />
+                    <inputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[code Agence]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="code Agence"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[ID Agence]"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Trier.Outputs[Sortie de tri].Columns[code Agence]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[ID Agence]"
+                      dataType="wstr"
+                      length="255"
+                      name="ID Agence" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="255"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nbr guishet]"
+                      dataType="r8"
+                      name="nbr guishet" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nbr de client]"
+                      dataType="r8"
+                      name="nbr de client" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Data and Sort by Agency IDs\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Feuil3$]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[code Agence]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[code Agence]"
+                      length="255"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[code Agence]"
+                      name="code Agence"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[region]"
+                      length="255"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nbr guishet]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nbr guishet]"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nbr guishet]"
+                      name="nbr guishet"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nbr de client]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nbr de client]"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nbr de client]"
+                      name="nbr de client"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[code Agence]"
+                      dataType="wstr"
+                      length="255"
+                      name="code Agence" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="255"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nbr guishet]"
+                      dataType="r8"
+                      name="nbr guishet" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nbr de client]"
+                      dataType="r8"
+                      name="nbr de client" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[code Agence]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[code Agence]"
+                      name="code Agence" />
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nbr guishet]"
+                      dataType="r8"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nbr guishet]"
+                      name="nbr guishet" />
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nbr de client]"
+                      dataType="r8"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nbr de client]"
+                      name="nbr de client" />
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Data and Sort by Agency IDs\Trier"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load Data and Sort by Agency IDs\Trier.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Trier.Inputs[Entrée de tri].Columns[code Agence]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="code Agence"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[code Agence]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Trier.Inputs[Entrée de tri].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="region"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Trier.Inputs[Entrée de tri].Columns[nbr guishet]"
+                      cachedDataType="r8"
+                      cachedName="nbr guishet"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nbr guishet]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Trier.Inputs[Entrée de tri].Columns[nbr de client]"
+                      cachedDataType="r8"
+                      cachedName="nbr de client"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nbr de client]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Data and Sort by Agency IDs\Trier.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Trier.Outputs[Sortie de tri].Columns[code Agence]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Trier.Outputs[Sortie de tri].Columns[code Agence]"
+                      name="code Agence"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[code Agence]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Trier.Outputs[Sortie de tri].Columns[region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Trier.Outputs[Sortie de tri].Columns[region]"
+                      name="region"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[region]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Trier.Outputs[Sortie de tri].Columns[nbr guishet]"
+                      dataType="r8"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Trier.Outputs[Sortie de tri].Columns[nbr guishet]"
+                      name="nbr guishet"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nbr guishet]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data and Sort by Agency IDs\Trier.Outputs[Sortie de tri].Columns[nbr de client]"
+                      dataType="r8"
+                      lineageId="Package\Load Data and Sort by Agency IDs\Trier.Outputs[Sortie de tri].Columns[nbr de client]"
+                      name="nbr de client"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nbr de client]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Data and Sort by Agency IDs.Paths[Sortie de source OLE DB]"
+              endId="Package\Load Data and Sort by Agency IDs\Trier.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\Load Data and Sort by Agency IDs\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Load Data and Sort by Agency IDs.Paths[Sortie de tri]"
+              endId="Package\Load Data and Sort by Agency IDs\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de tri"
+              startId="Package\Load Data and Sort by Agency IDs\Trier.Outputs[Sortie de tri]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Remove rows with NULL id"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{85F4F73E-F90D-443A-A1AF-111DBDDB7F46}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Remove rows with NULL id"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E100B2BC-979D-4F7B-9174-D70A791A0F3F}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="delete from [Feuil3$]&#xA;where [code Agence] is null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{02FBC617-560B-4CF7-BE6A-6C621423A444}"
+      DTS:From="Package\Remove rows with NULL id"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load Data and Sort by Agency IDs" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="237.6,41.6"
+          Id="Package\Load Data and Sort by Agency IDs"
+          TopLeft="304.166650047733,181.133332073755" />
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\Remove rows with NULL id"
+          TopLeft="402.499978008371,58.0666662628783" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="504.099978008371,99.6666662628783">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-81.1333279606371,81.4666658108764"
+              Start="0,0"
+              End="-81.1333279606371,73.9666658108764">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.7333329054382" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.7333329054382"
+                    Point2="0,40.7333329054382"
+                    Point3="-4,40.7333329054382" />
+                  <mssgle:LineSegment
+                    End="-77.1333279606371,40.7333329054382" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-77.1333279606371,40.7333329054382"
+                    Point2="-81.1333279606371,40.7333329054382"
+                    Point3="-81.1333279606371,44.7333329054382" />
+                  <mssgle:LineSegment
+                    End="-81.1333279606371,73.9666658108764" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Data and Sort by Agency IDs">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Load Data and Sort by Agency IDs\Source OLE DB"
+          TopLeft="316.666649364764,90.1333327065574" />
+        <NodeLayout
+          Size="100,41.6"
+          Id="Package\Load Data and Sort by Agency IDs\Trier"
+          TopLeft="407.499977735183,192.399998662074" />
+        <EdgeLayout
+          Id="Package\Load Data and Sort by Agency IDs.Paths[Sortie de source OLE DB]"
+          TopLeft="392.666649364764,131.733332706557">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="64.8333283704191,60.6666659555171"
+              Start="0,0"
+              End="64.8333283704191,53.1666659555171">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.3333329777585" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.3333329777585"
+                    Point2="0,30.3333329777585"
+                    Point3="4,30.3333329777585" />
+                  <mssgle:LineSegment
+                    End="60.8333283704191,30.3333329777585" />
+                  <mssgle:CubicBezierSegment
+                    Point1="60.8333283704191,30.3333329777585"
+                    Point2="64.8333283704191,30.3333329777585"
+                    Point3="64.8333283704191,34.3333329777585" />
+                  <mssgle:LineSegment
+                    End="64.8333283704191,53.1666659555171" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Load Data and Sort by Agency IDs\Destination OLE DB"
+          TopLeft="414.166644037599,292.933331296312" />
+        <EdgeLayout
+          Id="Package\Load Data and Sort by Agency IDs.Paths[Sortie de tri]"
+          TopLeft="457.499977735183,233.999998662074">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.2666663024161,58.9333326342371"
+              Start="0,0"
+              End="42.2666663024161,51.4333326342371">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.4666663171186" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.4666663171186"
+                    Point2="0,29.4666663171186"
+                    Point3="4,29.4666663171186" />
+                  <mssgle:LineSegment
+                    End="38.2666663024161,29.4666663171186" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.2666663024161,29.4666663171186"
+                    Point2="42.2666663024161,29.4666663171186"
+                    Point3="42.2666663024161,33.4666663171186" />
+                  <mssgle:LineSegment
+                    End="42.2666663024161,51.4333326342371" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Data and Sort by Agency IDs\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Data and Sort by Agency IDs\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

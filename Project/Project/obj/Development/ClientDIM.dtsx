@@ -1,0 +1,2439 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/12/2024 9:22:01 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-58MFL3I"
+  DTS:CreatorName="DESKTOP-58MFL3I\PC"
+  DTS:DTSID="{AD10E458-324D-470A-8853-79757DED0FBE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{83310D62-2B1A-45C3-8148-B3D0344F79DA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D23BFDE2-B8A3-4E14-8ECB-A5E4AC7299E3}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.Project">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=Project;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{D23BFDE2-B8A3-4E14-8ECB-A5E4AC7299E3}DESKTOP-58MFL3I\SQLEXPRESS.Project;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{295684B4-AA00-4FB2-8581-AF2E364DBCD8}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.src">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=src;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{295684B4-AA00-4FB2-8581-AF2E364DBCD8}DESKTOP-58MFL3I\SQLEXPRESS.src;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{DC299BB9-CAA9-4594-9549-A35F9397C700}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\PC\Desktop\5edma stage\Feuil2.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nom"
+              DTS:DTSID="{422A0F03-7307-4B85-9684-8EE908525CCB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="age"
+              DTS:DTSID="{4EB2CFE5-3DE1-44D0-8785-E4127C4F1CA6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="genre"
+              DTS:DTSID="{49165475-E5D5-4C27-B225-F0410225ECB1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="solde enmillion"
+              DTS:DTSID="{E7FB2671-2F98-49F4-A6A1-17232F8C3798}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="type compte"
+              DTS:DTSID="{B8BFA4D0-4A24-4359-8787-F9F564AA1011}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="anné douverture"
+              DTS:DTSID="{001B1E1F-78ED-47B2-911F-1A7973E2BBD1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="anné fermeture"
+              DTS:DTSID="{D9110EB5-C124-4550-885F-43530C411505}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 7"
+              DTS:DTSID="{4BE942B1-A1EC-420C-A849-C54DDB2D9370}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="motif"
+              DTS:DTSID="{376D11F4-2C08-45C2-A9CD-7E8EAC36E861}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Cleaning Data and correct Mismatches in columns"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{E17EC3E8-D612-4042-8617-992E0B3F9294}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cleaning Data and correct Mismatches in columns"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Bring Clients Table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Feuil2$]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      length="255"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      name="nom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[age]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[age]"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[age]"
+                      name="age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      length="255"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      name="genre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[solde enmillion]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[solde enmillion]"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[solde enmillion]"
+                      name="solde enmillion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[type compte]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[type compte]"
+                      length="255"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[type compte]"
+                      name="type compte"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[anné douverture]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[anné douverture]"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[anné douverture]"
+                      name="anné douverture"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[anné fermeture]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[anné fermeture]"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[anné fermeture]"
+                      name="anné fermeture"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[motif]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[motif]"
+                      length="255"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[motif]"
+                      name="motif"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[solde enmillion]"
+                      dataType="r8"
+                      name="solde enmillion" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[type compte]"
+                      dataType="wstr"
+                      length="255"
+                      name="type compte" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[anné douverture]"
+                      dataType="r8"
+                      name="anné douverture" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[anné fermeture]"
+                      dataType="r8"
+                      name="anné fermeture" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[F8]"
+                      dataType="wstr"
+                      length="255"
+                      name="F8" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].ExternalColumns[motif]"
+                      dataType="wstr"
+                      length="255"
+                      name="motif" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      name="nom" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[age]"
+                      dataType="r8"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[age]"
+                      name="age" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      name="genre" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[solde enmillion]"
+                      dataType="r8"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[solde enmillion]"
+                      name="solde enmillion" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[type compte]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[type compte]"
+                      name="type compte" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[anné douverture]"
+                      dataType="r8"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[anné douverture]"
+                      name="anné douverture" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[anné fermeture]"
+                      dataType="r8"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[anné fermeture]"
+                      name="anné fermeture" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[motif]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[motif]"
+                      name="motif" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Corrected Clients Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[newClt]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[nom]" />
+                    <inputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].Columns[age]"
+                      cachedDataType="r8"
+                      cachedName="age"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[age]"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[age]" />
+                    <inputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].Columns[solde enmillion]"
+                      cachedDataType="r8"
+                      cachedName="solde enmillion"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[solde enmillion]"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[solde enmillion]" />
+                    <inputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].Columns[type compte]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type compte"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[type compte]"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[type compte]" />
+                    <inputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].Columns[anné douverture]"
+                      cachedDataType="r8"
+                      cachedName="anné douverture"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[anné douverture]"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[anné douverture]" />
+                    <inputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].Columns[anné fermeture]"
+                      cachedDataType="r8"
+                      cachedName="anné fermeture"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[anné fermeture]"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[anné fermeture]" />
+                    <inputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].Columns[motif]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="motif"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[motif]"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[motif]" />
+                    <inputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      externalMetadataColumnId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[genre]"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[genre]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[solde enmillion]"
+                      dataType="r8"
+                      name="solde enmillion" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[type compte]"
+                      dataType="wstr"
+                      length="255"
+                      name="type compte" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[anné douverture]"
+                      dataType="r8"
+                      name="anné douverture" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[anné fermeture]"
+                      dataType="r8"
+                      name="anné fermeture" />
+                    <externalMetadataColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB].ExternalColumns[motif]"
+                      dataType="wstr"
+                      length="255"
+                      name="motif" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Identify Mismatched Gender"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[CorrectNameandSEX]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[CorrectNameandSEX]) [refTable]
+where [refTable].[Name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sex" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[nom]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Inputs[Entrée de recherche].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[nom]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie de recherche avec correspondance].Columns[Sex]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      length="1"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie de recherche avec correspondance].Columns[Sex]"
+                      name="Sex"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">Sex</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cleaning Data and correct Mismatches in columns\New genre column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="New genre column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Cleaning Data and correct Mismatches in columns\New genre column.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\New genre column.Inputs[Entrée de colonne dérivée].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[ISNULL](#{Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie de recherche avec correspondance].Columns[Sex]}) ? #{Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[genre]} : #{Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie de recherche avec correspondance].Columns[Sex]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(Sex) ? genre : Sex</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\New genre column.Inputs[Entrée de colonne dérivée].Columns[Sex]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Sex"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie de recherche avec correspondance].Columns[Sex]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cleaning Data and correct Mismatches in columns\New genre column.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Cleaning Data and correct Mismatches in columns\New genre column.Inputs[Entrée de colonne dérivée]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cleaning Data and correct Mismatches in columns\New genre column.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Cleaning Data and correct Mismatches in columns\New genre column.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\New genre column.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\New genre column.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\New genre column.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\New genre column.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Fractionnement conditionnel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Achemine des lignes de données vers différentes sorties, selon le contexte des données. Utilisez des conditions (expressions SSIS) pour spécifier les lignes qui seront acheminées. Par exemple, séparez les enregistrements qui doivent être nettoyés de ceux qui sont prêts à être chargés ou acheminez uniquement un sous-ensemble d'enregistrements."
+              name="Take Mismatched Gender Rows only to correct"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Inputs[Entrée de fractionnement conditionnel]"
+                  description="Entrée vers la transformation de fractionnement conditionnel"
+                  name="Entrée de fractionnement conditionnel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Inputs[Entrée de fractionnement conditionnel].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[genre]" />
+                    <inputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Inputs[Entrée de fractionnement conditionnel].Columns[Sex]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Sex"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie de recherche avec correspondance].Columns[Sex]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Outputs[MismatchedSex]"
+                  description="Sortie 1 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="MismatchedSex"
+                  synchronousInputId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de traçabilité à la place des noms de colonnes."
+                      name="Expression">#{Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB].Columns[genre]} != #{Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie de recherche avec correspondance].Columns[Sex]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">genre != Sex</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Outputs[Sortie par défaut de fractionnement conditionnel]"
+                  description="Sortie par défaut de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  name="Sortie par défaut de fractionnement conditionnel"
+                  synchronousInputId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Inputs[Entrée de fractionnement conditionnel]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Outputs[Sortie d'erreur de fractionnement conditionnel]"
+                  description="Sortie d'erreur de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de fractionnement conditionnel"
+                  synchronousInputId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Inputs[Entrée de fractionnement conditionnel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Cleaning Data and correct Mismatches in columns.Paths[MismatchedSex]"
+              endId="Package\Cleaning Data and correct Mismatches in columns\New genre column.Inputs[Entrée de colonne dérivée]"
+              name="MismatchedSex"
+              startId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Outputs[MismatchedSex]" />
+            <path
+              refId="Package\Cleaning Data and correct Mismatches in columns.Paths[Sortie de colonne dérivée]"
+              endId="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Cleaning Data and correct Mismatches in columns\New genre column.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Cleaning Data and correct Mismatches in columns.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct.Inputs[Entrée de fractionnement conditionnel]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Cleaning Data and correct Mismatches in columns.Paths[Sortie de source OLE DB]"
+              endId="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender.Inputs[Entrée de recherche]"
+              name="Sortie de source OLE DB"
+              startId="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{21ADA882-2D12-478F-907C-E77D3B8A6288}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D23BFDE2-B8A3-4E14-8ECB-A5E4AC7299E3}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="DELETE FROM [Client];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load the ClietnsDIM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{886E060F-94C4-4DE3-AB06-3A22AADE0357}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load the ClietnsDIM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load the ClietnsDIM\Correct some datatypes"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Correct some datatypes"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load the ClietnsDIM\Correct some datatypes.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Correct some datatypes.Inputs[Entrée de conversion de données].Columns[solde enmillion]"
+                      cachedDataType="r8"
+                      cachedName="solde enmillion"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[solde enmillion]" />
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Correct some datatypes.Inputs[Entrée de conversion de données].Columns[anné douverture]"
+                      cachedDataType="r8"
+                      cachedName="anné douverture"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[anné douverture]" />
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Correct some datatypes.Inputs[Entrée de conversion de données].Columns[anné fermeture]"
+                      cachedDataType="r8"
+                      cachedName="anné fermeture"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[anné fermeture]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\Load the ClietnsDIM\Correct some datatypes.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie de conversion de données].Columns[solde enmillion]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie de conversion de données].Columns[solde enmillion]"
+                      name="solde enmillion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[solde enmillion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie de conversion de données].Columns[année douverture]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie de conversion de données].Columns[année douverture]"
+                      name="année douverture"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[anné douverture]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie de conversion de données].Columns[année fermeture]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie de conversion de données].Columns[année fermeture]"
+                      name="année fermeture"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[anné fermeture]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\Load the ClietnsDIM\Correct some datatypes.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load the ClietnsDIM\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Client]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load the ClietnsDIM\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[nom]" />
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[age]"
+                      cachedDataType="r8"
+                      cachedName="age"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[age]"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[age]" />
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[genre]"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[genre]" />
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[type compte]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type compte"
+                      cachedSortKeyPosition="4"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type compte]"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[type compte]" />
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[motif]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="motif"
+                      cachedSortKeyPosition="7"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[motif]"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[motif]" />
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[année douverture]"
+                      cachedDataType="r8"
+                      cachedName="année douverture"
+                      cachedSortKeyPosition="9"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[année douverture]"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[année douverture]" />
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[année fermeture]"
+                      cachedDataType="r8"
+                      cachedName="année fermeture"
+                      cachedSortKeyPosition="10"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[année fermeture]"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[année fermeture]" />
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Correct some datatypes.solde enmillion]"
+                      cachedDataType="r8"
+                      cachedName="Correct some datatypes.solde enmillion"
+                      cachedSortKeyPosition="8"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[ solde enmillion]"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[Correct some datatypes.solde enmillion]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[ solde enmillion]"
+                      dataType="r8"
+                      name=" solde enmillion" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type compte]"
+                      dataType="wstr"
+                      length="255"
+                      name="type compte" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[année douverture]"
+                      dataType="r8"
+                      name="année douverture" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[année fermeture]"
+                      dataType="r8"
+                      name="année fermeture" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[motif]"
+                      dataType="wstr"
+                      length="255"
+                      name="motif" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load the ClietnsDIM\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load the ClietnsDIM\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load the ClietnsDIM\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load the ClietnsDIM\Load Data from newClt"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Load Data from newClt"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[newClt]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load the ClietnsDIM\Load Data from newClt.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      length="255"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      name="nom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[age]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[age]"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[age]"
+                      name="age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      length="255"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[genre]"
+                      name="genre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[solde enmillion]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[solde enmillion]"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[solde enmillion]"
+                      name="solde enmillion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[type compte]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[type compte]"
+                      length="255"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[type compte]"
+                      name="type compte"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[anné douverture]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[anné douverture]"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[anné douverture]"
+                      name="anné douverture"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[anné fermeture]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[anné fermeture]"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[anné fermeture]"
+                      name="anné fermeture"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[motif]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[motif]"
+                      length="255"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[motif]"
+                      name="motif"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[solde enmillion]"
+                      dataType="r8"
+                      name="solde enmillion" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[type compte]"
+                      dataType="wstr"
+                      length="255"
+                      name="type compte" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[anné douverture]"
+                      dataType="r8"
+                      name="anné douverture" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[anné fermeture]"
+                      dataType="r8"
+                      name="anné fermeture" />
+                    <externalMetadataColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].ExternalColumns[motif]"
+                      dataType="wstr"
+                      length="255"
+                      name="motif" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      name="nom" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[age]"
+                      dataType="r8"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[age]"
+                      name="age" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[genre]"
+                      name="genre" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[solde enmillion]"
+                      dataType="r8"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[solde enmillion]"
+                      name="solde enmillion" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[type compte]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[type compte]"
+                      name="type compte" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[anné douverture]"
+                      dataType="r8"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[anné douverture]"
+                      name="anné douverture" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[anné fermeture]"
+                      dataType="r8"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[anné fermeture]"
+                      name="anné fermeture" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[motif]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[motif]"
+                      name="motif" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load the ClietnsDIM\Trier"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load the ClietnsDIM\Trier.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Inputs[Entrée de tri].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[nom]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Inputs[Entrée de tri].Columns[age]"
+                      cachedDataType="r8"
+                      cachedName="age"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[age]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Inputs[Entrée de tri].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genre"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[genre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Inputs[Entrée de tri].Columns[solde enmillion]"
+                      cachedDataType="r8"
+                      cachedName="solde enmillion"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[solde enmillion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">11</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Inputs[Entrée de tri].Columns[type compte]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type compte"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[type compte]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Inputs[Entrée de tri].Columns[anné douverture]"
+                      cachedDataType="r8"
+                      cachedName="anné douverture"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[anné douverture]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Inputs[Entrée de tri].Columns[anné fermeture]"
+                      cachedDataType="r8"
+                      cachedName="anné fermeture"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[anné fermeture]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">6</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Inputs[Entrée de tri].Columns[motif]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="motif"
+                      lineageId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[motif]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">7</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Inputs[Entrée de tri].Columns[solde enmillion1]"
+                      cachedDataType="r8"
+                      cachedName="solde enmillion"
+                      lineageId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie de conversion de données].Columns[solde enmillion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">8</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Inputs[Entrée de tri].Columns[année douverture]"
+                      cachedDataType="r8"
+                      cachedName="année douverture"
+                      lineageId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie de conversion de données].Columns[année douverture]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">9</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Inputs[Entrée de tri].Columns[année fermeture]"
+                      cachedDataType="r8"
+                      cachedName="année fermeture"
+                      lineageId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie de conversion de données].Columns[année fermeture]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">10</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[nom]"
+                      name="nom"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[nom]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[age]"
+                      dataType="r8"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[age]"
+                      name="age"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[age]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[genre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[genre]"
+                      name="genre"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[genre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[Load Data from newClt.solde enmillion]"
+                      dataType="r8"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[Load Data from newClt.solde enmillion]"
+                      name="Load Data from newClt.solde enmillion"
+                      sortKeyPosition="11">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[solde enmillion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[type compte]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[type compte]"
+                      name="type compte"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[type compte]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[anné douverture]"
+                      dataType="r8"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[anné douverture]"
+                      name="anné douverture"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[anné douverture]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[anné fermeture]"
+                      dataType="r8"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[anné fermeture]"
+                      name="anné fermeture"
+                      sortKeyPosition="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[anné fermeture]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[motif]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[motif]"
+                      name="motif"
+                      sortKeyPosition="7">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB].Columns[motif]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[Correct some datatypes.solde enmillion]"
+                      dataType="r8"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[Correct some datatypes.solde enmillion]"
+                      name="Correct some datatypes.solde enmillion"
+                      sortKeyPosition="8">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie de conversion de données].Columns[solde enmillion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[année douverture]"
+                      dataType="r8"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[année douverture]"
+                      name="année douverture"
+                      sortKeyPosition="9">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie de conversion de données].Columns[année douverture]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[année fermeture]"
+                      dataType="r8"
+                      lineageId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri].Columns[année fermeture]"
+                      name="année fermeture"
+                      sortKeyPosition="10">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie de conversion de données].Columns[année fermeture]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load the ClietnsDIM.Paths[Sortie de conversion de données]"
+              endId="Package\Load the ClietnsDIM\Trier.Inputs[Entrée de tri]"
+              name="Sortie de conversion de données"
+              startId="Package\Load the ClietnsDIM\Correct some datatypes.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\Load the ClietnsDIM.Paths[Sortie de source OLE DB]"
+              endId="Package\Load the ClietnsDIM\Correct some datatypes.Inputs[Entrée de conversion de données]"
+              name="Sortie de source OLE DB"
+              startId="Package\Load the ClietnsDIM\Load Data from newClt.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Load the ClietnsDIM.Paths[Sortie de tri]"
+              endId="Package\Load the ClietnsDIM\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de tri"
+              startId="Package\Load the ClietnsDIM\Trier.Outputs[Sortie de tri]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7ACB98E1-9C87-454C-9DB3-76A53161E99B}"
+      DTS:From="Package\Cleaning Data and correct Mismatches in columns"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load the ClietnsDIM" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C6B3EF35-1311-4A29-9FF9-080974872BEA}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Cleaning Data and correct Mismatches in columns" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="309.6,41.6"
+          Id="Package\Cleaning Data and correct Mismatches in columns"
+          TopLeft="298.333317033119,69.333332851198" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Load the ClietnsDIM"
+          TopLeft="459.999974866709,156.866665575835" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="453.133317033119,110.933332851198">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="93.2666578335902,45.9333327246375"
+              Start="0,0"
+              End="93.2666578335902,38.4333327246375">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.9666663623187" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.9666663623187"
+                    Point2="0,22.9666663623187"
+                    Point3="4,22.9666663623187" />
+                  <mssgle:LineSegment
+                    End="89.2666578335902,22.9666663623187" />
+                  <mssgle:CubicBezierSegment
+                    Point1="89.2666578335902,22.9666663623187"
+                    Point2="93.2666578335902,22.9666663623187"
+                    Point3="93.2666578335902,26.9666663623187" />
+                  <mssgle:LineSegment
+                    End="93.2666578335902,38.4333327246375" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="24.9999986340603,10.3999999276797" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="189.79999863406,31.1999999276797">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108.533318399059,58.9333329235183"
+              Start="0,0"
+              End="101.033318399059,58.9333329235183">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="50.2666591995294,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.2666591995294,0"
+                    Point2="54.2666591995294,0"
+                    Point3="54.2666591995294,4" />
+                  <mssgle:LineSegment
+                    End="54.2666591995294,54.9333329235183" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.2666591995294,54.9333329235183"
+                    Point2="54.2666591995294,58.9333329235183"
+                    Point3="58.2666591995294,58.9333329235183" />
+                  <mssgle:LineSegment
+                    End="101.033318399059,58.9333329235183" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Cleaning Data and correct Mismatches in columns">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Cleaning Data and correct Mismatches in columns\New genre column"
+          TopLeft="414.166644037599,297.266664599511" />
+        <NodeLayout
+          Size="187.2,41.6"
+          Id="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table"
+          TopLeft="256.666652643019,368.933331151671" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender"
+          TopLeft="427.499976642431,129.133332435356" />
+        <NodeLayout
+          Size="294.4,41.6"
+          Id="Package\Cleaning Data and correct Mismatches in columns\Take Mismatched Gender Rows only to correct"
+          TopLeft="413.333310749797,216.666665159994" />
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table"
+          TopLeft="386.666645540132,45.0666663532787" />
+        <EdgeLayout
+          Id="Package\Cleaning Data and correct Mismatches in columns.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="531.499976642431,170.733332435356">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.0333341073658,45.9333327246373"
+              Start="0,0"
+              End="29.0333341073658,38.4333327246373">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.9666663623187" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.9666663623187"
+                    Point2="0,22.9666663623187"
+                    Point3="4,22.9666663623187" />
+                  <mssgle:LineSegment
+                    End="25.0333341073658,22.9666663623187" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.0333341073658,22.9666663623187"
+                    Point2="29.0333341073658,22.9666663623187"
+                    Point3="29.0333341073658,26.9666663623187" />
+                  <mssgle:LineSegment
+                    End="29.0333341073658,38.4333327246373" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-77.1603446650671,27.9666663623187,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cleaning Data and correct Mismatches in columns.Paths[Sortie de colonne dérivée]"
+          TopLeft="496.566644037599,338.866664599511">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-146.29999139458,30.06666655216"
+              Start="0,0"
+              End="-146.29999139458,22.56666655216">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.03333327608" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.03333327608"
+                    Point2="0,15.03333327608"
+                    Point3="-4,15.03333327608" />
+                  <mssgle:LineSegment
+                    End="-142.29999139458,15.03333327608" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-142.29999139458,15.03333327608"
+                    Point2="-146.29999139458,15.03333327608"
+                    Point3="-146.29999139458,19.03333327608" />
+                  <mssgle:LineSegment
+                    End="-146.29999139458,22.56666655216" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cleaning Data and correct Mismatches in columns.Paths[MismatchedSex]"
+          TopLeft="560.533310749797,258.266665159994">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-63.966666712198,38.9999994395178"
+              Start="0,0"
+              End="-63.966666712198,31.4999994395178">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.4999997197589" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.4999997197589"
+                    Point2="0,19.4999997197589"
+                    Point3="-4,19.4999997197589" />
+                  <mssgle:LineSegment
+                    End="-59.966666712198,19.4999997197589" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-59.966666712198,19.4999997197589"
+                    Point2="-63.966666712198,19.4999997197589"
+                    Point3="-63.966666712198,23.4999997197589" />
+                  <mssgle:LineSegment
+                    End="-63.966666712198,31.4999994395178" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-66.695852887349,24.4999997197589,69.4250390625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cleaning Data and correct Mismatches in columns.Paths[Sortie de source OLE DB]"
+          TopLeft="469.866645540132,86.6666663532787">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="61.6333311022984,42.4666660820776"
+              Start="0,0"
+              End="61.6333311022984,34.9666660820776">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2333330410388" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2333330410388"
+                    Point2="0,21.2333330410388"
+                    Point3="4,21.2333330410388" />
+                  <mssgle:LineSegment
+                    End="57.6333311022984,21.2333330410388" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.6333311022984,21.2333330410388"
+                    Point2="61.6333311022984,21.2333330410388"
+                    Point3="61.6333311022984,25.2333330410388" />
+                  <mssgle:LineSegment
+                    End="61.6333311022984,34.9666660820776" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cleaning Data and correct Mismatches in columns\Identify Mismatched Gender">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[CorrectNameandSEX]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cleaning Data and correct Mismatches in columns\Bring Clients Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cleaning Data and correct Mismatches in columns\Corrected Clients Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load the ClietnsDIM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\Load the ClietnsDIM\Load Data from newClt"
+          TopLeft="272.363632305102,6.60606050762263" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\Load the ClietnsDIM\Correct some datatypes"
+          TopLeft="266.333329364657,103.666665121913" />
+        <EdgeLayout
+          Id="Package\Load the ClietnsDIM.Paths[Sortie de source OLE DB]"
+          TopLeft="362.74848083488,48.2060605076226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.4606046142908"
+              Start="0,0"
+              End="0,47.9606046142908">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.9606046142908" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="100,41.6"
+          Id="Package\Load the ClietnsDIM\Trier"
+          TopLeft="319.999995231628,231.999996542931" />
+        <EdgeLayout
+          Id="Package\Load the ClietnsDIM.Paths[Sortie de conversion de données]"
+          TopLeft="360.733329364657,145.266665121913">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.26666586697144,86.7333314210172"
+              Start="0,0"
+              End="9.26666586697144,79.2333314210172">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.3666657105086" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.3666657105086"
+                    Point2="0,43.3666657105086"
+                    Point3="4,43.3666657105086" />
+                  <mssgle:LineSegment
+                    End="5.26666586697144,43.3666657105086" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.26666586697144,43.3666657105086"
+                    Point2="9.26666586697144,43.3666657105086"
+                    Point3="9.26666586697144,47.3666657105086" />
+                  <mssgle:LineSegment
+                    End="9.26666586697144,79.2333314210172" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Load the ClietnsDIM\Destination OLE DB"
+          TopLeft="422.999993696809,356.999994680286" />
+        <EdgeLayout
+          Id="Package\Load the ClietnsDIM.Paths[Sortie de tri]"
+          TopLeft="369.999995231628,273.599996542931">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="138.59999846518,83.3999981373549"
+              Start="0,0"
+              End="138.59999846518,75.8999981373549">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.6999990686775" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.6999990686775"
+                    Point2="0,41.6999990686775"
+                    Point3="4,41.6999990686775" />
+                  <mssgle:LineSegment
+                    End="134.59999846518,41.6999990686775" />
+                  <mssgle:CubicBezierSegment
+                    Point1="134.59999846518,41.6999990686775"
+                    Point2="138.59999846518,41.6999990686775"
+                    Point3="138.59999846518,45.6999990686775" />
+                  <mssgle:LineSegment
+                    End="138.59999846518,75.8999981373549" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load the ClietnsDIM\Load Data from newClt">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load the ClietnsDIM\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

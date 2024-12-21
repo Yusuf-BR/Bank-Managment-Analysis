@@ -1,0 +1,2021 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/4/2024 10:32:31 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-58MFL3I"
+  DTS:CreatorName="DESKTOP-58MFL3I\PC"
+  DTS:DTSID="{60EB2BC7-3EE3-4C4E-BC3D-690FC0797222}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="chèque"
+  DTS:PackageType="5"
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{90DF21F1-6047-4D46-89E2-F617F9206C66}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7099D2F4-B3D4-4686-9DE5-B4233EB0DB66}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{7099D2F4-B3D4-4686-9DE5-B4233EB0DB66}DESKTOP-58MFL3I\SQLEXPRESS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.des]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C733A5E7-9D01-4408-ADD4-FD37CB6DCAE7}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.des">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=des;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-chèque-{C733A5E7-9D01-4408-ADD4-FD37CB6DCAE7}DESKTOP-58MFL3I\SQLEXPRESS.des;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B1E7F445-0793-49E6-9516-91103D6434D0}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.PFA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=PFA;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{B1E7F445-0793-49E6-9516-91103D6434D0}DESKTOP-58MFL3I\SQLEXPRESS.PFA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{400C9A77-20F9-4E25-890F-6EAEE1AFC901}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.PFA 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=PFA;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{400C9A77-20F9-4E25-890F-6EAEE1AFC901}DESKTOP-58MFL3I\SQLEXPRESS.PFA 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7798C22D-1C64-4903-AC91-68F3EAD22328}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.PFA 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=PFA;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{7798C22D-1C64-4903-AC91-68F3EAD22328}DESKTOP-58MFL3I\SQLEXPRESS.PFA 2;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA 3]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F516BED0-6530-4753-A961-E33820FE4A27}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.PFA 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=PFA;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{F516BED0-6530-4753-A961-E33820FE4A27}DESKTOP-58MFL3I\SQLEXPRESS.PFA 3;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B1264A02-4302-48C2-AAC2-6103E0F7F58A}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\PC\Desktop\5edma stage\agent.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="emis"
+              DTS:DTSID="{8AD5DF26-8242-4040-A477-D87F9B47C122}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="isvalid"
+              DTS:DTSID="{7D74D256-E368-46E6-BC49-6420ADC67263}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="11"
+              DTS:TextQualified="True"
+              DTS:ObjectName="recu"
+              DTS:DTSID="{FD161088-AE6B-4EB1-BD4C-869D05E47AFE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date"
+              DTS:DTSID="{1FA5F23D-B03F-42FD-9C42-BCD4C2D1FDAD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="id"
+              DTS:DTSID="{39746E86-435C-41F0-AECC-9038630228F4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="idagent"
+              DTS:DTSID="{C8B6F389-7867-4D47-9A7E-F539B2CE9E43}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="bénéficiaire"
+              DTS:DTSID="{E4C1AD88-F214-4193-9E45-C77D37B6D9B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="codeagence"
+              DTS:DTSID="{5C3EC65E-6EA9-4D88-BAD4-AD99B033DD84}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="codeclient"
+              DTS:DTSID="{4DABF8AF-D40B-40EC-9008-9F197529E6F3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="codeenregistrement"
+              DTS:DTSID="{8C3B50A9-6910-4958-B301-964F77FFDE13}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="codevaleur"
+              DTS:DTSID="{78CCDA14-6CC4-4FA7-B174-2F920731F277}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="description"
+              DTS:DTSID="{4A298EA2-D8D9-455F-AFB9-D9E45FAF3301}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="image"
+              DTS:DTSID="{C155061C-2380-4CAA-86C4-DDBAB1E55A82}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="montant"
+              DTS:DTSID="{12D97CC6-90E3-406F-99E8-041170397737}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="montantchiffre"
+              DTS:DTSID="{43A95FA0-A5AA-41AE-909F-F5A4F2110C7C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="montantlettre"
+              DTS:DTSID="{4B846735-2047-4BBA-84AF-173CBF3D0F32}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nom"
+              DTS:DTSID="{DC98E605-C07F-4CFD-BAF3-C88A857C0712}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nombeneficiaire"
+              DTS:DTSID="{BDC7084D-F7E0-4D47-BACD-3D30A464B63C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nomdonneurordre"
+              DTS:DTSID="{3513382E-387F-454B-AE17-3B6E2AF4204F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nomfichier"
+              DTS:DTSID="{70FC2F5C-8497-4ABA-BE48-76611403BDE9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="numvaleur"
+              DTS:DTSID="{B36008FF-E6E7-4169-9979-D2E1173E01D4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rang"
+              DTS:DTSID="{B3C624EE-975C-4EC1-A7B7-F3881C99C965}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ribbeneficiaire"
+              DTS:DTSID="{E63DCFE5-9044-425A-8F4F-D877EF26524F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ribdonneurordre"
+              DTS:DTSID="{02E3290C-1745-4D2A-B7D3-916FF46F186C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sens"
+              DTS:DTSID="{C4F0E862-EE4C-465F-B369-86E5919A9144}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sort"
+              DTS:DTSID="{2F40FBF7-02D9-4C22-961C-621F33730896}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dateecheance"
+              DTS:DTSID="{FF00C395-BFEF-4236-9A31-A605DDA9ECAA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="numcheque"
+              DTS:DTSID="{6F7DEE66-2EB9-47AB-8686-4619797CC13F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{67AD13D7-9958-4523-83C7-65BC682276A0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AvgMontant">
+      <DTS:VariableValue
+        DTS:DataType="5">0.</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Client DIM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{125210BA-99B0-4C0E-A3A2-764342DB0300}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Client DIM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Client DIM\Commande OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+              name="Commande OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Client] SET [Client Name] = ? WHERE [Client ID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Client DIM\Commande OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.des]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.des]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Client DIM\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Client DIM\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[codeclient]"
+                      cachedDataType="ui1"
+                      cachedName="codeclient"
+                      externalMetadataColumnId="Package\Client DIM\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[codeclient]" />
+                    <inputColumn
+                      refId="Package\Client DIM\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nom"
+                      externalMetadataColumnId="Package\Client DIM\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      dataType="ui1"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Client DIM\Commande OLE DB.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\Client DIM\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Client DIM\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\Client DIM\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Client DIM\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Client DIM\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Client DIM\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Client DIM\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Client DIM\Dimension à variation lente"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Dimension à variation lente;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;3"
+              description="Met à jour une dimension d'entrepôt de données (Data Warehouse) SQL Server Analysis Services. Mettez à jour les enregistrements de dimension qui sont déjà présents et insérez ceux qui ne le sont pas. Par exemple, mettez à jour la table DimProduct de la base de données OLAP AdventureWorksDW avec les données de la table Products dans la base de données OLTP AdventureWorks."
+              name="Dimension à variation lente"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SELECT utilisée pour créer un ensemble de lignes du schéma."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Client ID], [Client Name] FROM [dbo].[Client]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la clause WHERE dans l'instruction SELECT qui sélectionne la ligne actuelle parmi les lignes comportant des clés de travail identiques."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour d'attribut d'historique sont dirigées sur la sortie de la transformation pour les mises à jour d'attribut de validation."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque les colonnes comportant des attributs fixes contiennent des modifications."
+                  name="FailOnFixedAttributeChange">true</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de la colonne pour le membre déduit."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour de membre déduit sont détectées."
+                  name="EnableInferredMember">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque la recherche d'un enregistrement existant échoue."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie que toutes les lignes de l'entrée sont nouvelles ou que la transformation détecte le type de modification."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Client DIM\Dimension à variation lente.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.des]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.des]"
+                  description="Définit la connexion à utiliser pour faire des recherches dans la table de dimension"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Client DIM\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]"
+                  name="Entrée de dimension à variation lente">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Client DIM\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[codeclient]"
+                      cachedDataType="ui1"
+                      cachedName="codeclient"
+                      externalMetadataColumnId="Package\Client DIM\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Client ID]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[codeclient]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Client DIM\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nom"
+                      externalMetadataColumnId="Package\Client DIM\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Client Name]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Client ID]"
+                      dataType="ui1"
+                      name="Client ID" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[Client Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Client Name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Client DIM\Dimension à variation lente.Outputs[Sortie inchangée]"
+                  description="Lignes inchangées"
+                  exclusionGroup="1"
+                  name="Sortie inchangée"
+                  synchronousInputId="Package\Client DIM\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Client DIM\Dimension à variation lente.Outputs[Nouvelle sortie]"
+                  description="Nouvelles lignes"
+                  exclusionGroup="1"
+                  name="Nouvelle sortie"
+                  synchronousInputId="Package\Client DIM\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Client DIM\Dimension à variation lente.Outputs[Sortie d'attribut fixe]"
+                  description="Lignes comportant des modifications dans les colonnes marquées FixedAttribute"
+                  exclusionGroup="1"
+                  name="Sortie d'attribut fixe"
+                  synchronousInputId="Package\Client DIM\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Client DIM\Dimension à variation lente.Outputs[Sortie de mises à jour d'attribut de validation]"
+                  description="Ces lignes contiennent de nouvelles informations sur les modifications de colonnes ChangingAttribute (type 1)"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour d'attribut de validation"
+                  synchronousInputId="Package\Client DIM\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Client DIM\Dimension à variation lente.Outputs[Sortie d'insertions d'attribut d'historique]"
+                  description="Les modifications sur HistoricalAttribute (type 2) apparaissent dans ces nouvelles lignes"
+                  exclusionGroup="2"
+                  name="Sortie d'insertions d'attribut d'historique"
+                  synchronousInputId="Package\Client DIM\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Client DIM\Dimension à variation lente.Outputs[Sortie de mises à jour de membre déduit]"
+                  description="Information de mise à jour de ligne de dimension initiale non remplie"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour de membre déduit"
+                  synchronousInputId="Package\Client DIM\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Client DIM\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Client]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Client DIM\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.des]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.des]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Client DIM\Insert Destination.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Client DIM\Insert Destination.Inputs[Entrée de destination OLE DB].Columns[codeclient]"
+                      cachedDataType="ui1"
+                      cachedName="codeclient"
+                      externalMetadataColumnId="Package\Client DIM\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[Client ID]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[codeclient]" />
+                    <inputColumn
+                      refId="Package\Client DIM\Insert Destination.Inputs[Entrée de destination OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nom"
+                      externalMetadataColumnId="Package\Client DIM\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[Client Name]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[Client ID]"
+                      dataType="ui1"
+                      name="Client ID" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[Client Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Client Name" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Transactions]"
+                      dataType="i2"
+                      name="Total Transactions" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Amount]"
+                      dataType="i4"
+                      name="Total Amount" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Client DIM\Insert Destination.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Client DIM\Insert Destination.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Client DIM\Insert Destination.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Client DIM\Insert Destination.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Client DIM\Insert Destination.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Client DIM\Insert Destination.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Client DIM\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[prélèvement]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Client DIM\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[emis]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[emis]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[emis]"
+                      name="emis"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[recu]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[recu]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[recu]"
+                      name="recu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[date]"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[id]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[id]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idagent]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[idagent]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[idagent]"
+                      name="idagent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[codeagence]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[codeagence]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[codeagence]"
+                      name="codeagence"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[codeclient]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[codeclient]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[codeclient]"
+                      name="codeclient"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[codeenregistrement]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[codeenregistrement]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[codeenregistrement]"
+                      name="codeenregistrement"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[codevaleur]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[codevaleur]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[codevaleur]"
+                      name="codevaleur"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[description]"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[description]"
+                      name="description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[image]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[image]"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[image]"
+                      name="image"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[montant]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[montant]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[montant]"
+                      name="montant"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      name="nom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nombeneficiaire]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nombeneficiaire]"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nombeneficiaire]"
+                      name="nombeneficiaire"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nomdonneurordre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nomdonneurordre]"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nomdonneurordre]"
+                      name="nomdonneurordre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nomfichier]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nomfichier]"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nomfichier]"
+                      name="nomfichier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[numvaleur]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[numvaleur]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[numvaleur]"
+                      name="numvaleur"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[rang]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[rang]"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[rang]"
+                      name="rang"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ribbeneficiaire]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ribbeneficiaire]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ribbeneficiaire]"
+                      name="ribbeneficiaire"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ribdonneurordre]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ribdonneurordre]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ribdonneurordre]"
+                      name="ribdonneurordre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[sens]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[sens]"
+                      length="1"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[sens]"
+                      name="sens"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[sort]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[sort]"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[sort]"
+                      name="sort"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[isvalid]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[isvalid]"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[isvalid]"
+                      name="isvalid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[dateecheance]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[dateecheance]"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[dateecheance]"
+                      name="dateecheance"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[numprelevement]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[numprelevement]"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[numprelevement]"
+                      name="numprelevement"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[emis]"
+                      dataType="bool"
+                      name="emis" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[recu]"
+                      dataType="bool"
+                      name="recu" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[date]"
+                      dataType="wstr"
+                      length="50"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[id]"
+                      dataType="i2"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[idagent]"
+                      dataType="i2"
+                      name="idagent" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[codeagence]"
+                      dataType="i2"
+                      name="codeagence" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[codeclient]"
+                      dataType="ui1"
+                      name="codeclient" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[codeenregistrement]"
+                      dataType="i2"
+                      name="codeenregistrement" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[codevaleur]"
+                      dataType="ui1"
+                      name="codevaleur" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[description]"
+                      dataType="wstr"
+                      length="50"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[image]"
+                      dataType="wstr"
+                      length="50"
+                      name="image" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[montant]"
+                      dataType="i4"
+                      name="montant" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="50"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nombeneficiaire]"
+                      dataType="wstr"
+                      length="50"
+                      name="nombeneficiaire" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nomdonneurordre]"
+                      dataType="wstr"
+                      length="50"
+                      name="nomdonneurordre" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nomfichier]"
+                      dataType="wstr"
+                      length="50"
+                      name="nomfichier" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[numvaleur]"
+                      dataType="ui1"
+                      name="numvaleur" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[rang]"
+                      dataType="wstr"
+                      length="50"
+                      name="rang" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ribbeneficiaire]"
+                      dataType="i4"
+                      name="ribbeneficiaire" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ribdonneurordre]"
+                      dataType="i4"
+                      name="ribdonneurordre" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[sens]"
+                      dataType="wstr"
+                      length="1"
+                      name="sens" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[sort]"
+                      dataType="wstr"
+                      length="50"
+                      name="sort" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[isvalid]"
+                      dataType="wstr"
+                      length="50"
+                      name="isvalid" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[dateecheance]"
+                      dataType="wstr"
+                      length="50"
+                      name="dateecheance" />
+                    <externalMetadataColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[numprelevement]"
+                      dataType="ui1"
+                      name="numprelevement" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[emis]"
+                      dataType="bool"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[emis]"
+                      name="emis" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[recu]"
+                      dataType="bool"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[recu]"
+                      name="recu" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[date]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[id]"
+                      dataType="i2"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[idagent]"
+                      dataType="i2"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[idagent]"
+                      name="idagent" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[codeagence]"
+                      dataType="i2"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[codeagence]"
+                      name="codeagence" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[codeclient]"
+                      dataType="ui1"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[codeclient]"
+                      name="codeclient" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[codeenregistrement]"
+                      dataType="i2"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[codeenregistrement]"
+                      name="codeenregistrement" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[codevaleur]"
+                      dataType="ui1"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[codevaleur]"
+                      name="codevaleur" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[description]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[description]"
+                      name="description" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[image]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[image]"
+                      name="image" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[montant]"
+                      dataType="i4"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[montant]"
+                      name="montant" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      name="nom" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nombeneficiaire]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nombeneficiaire]"
+                      name="nombeneficiaire" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nomdonneurordre]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nomdonneurordre]"
+                      name="nomdonneurordre" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nomfichier]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nomfichier]"
+                      name="nomfichier" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[numvaleur]"
+                      dataType="ui1"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[numvaleur]"
+                      name="numvaleur" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[rang]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[rang]"
+                      name="rang" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ribbeneficiaire]"
+                      dataType="i4"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ribbeneficiaire]"
+                      name="ribbeneficiaire" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ribdonneurordre]"
+                      dataType="i4"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ribdonneurordre]"
+                      name="ribdonneurordre" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[sens]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[sens]"
+                      name="sens" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[sort]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[sort]"
+                      name="sort" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[isvalid]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[isvalid]"
+                      name="isvalid" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[dateecheance]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[dateecheance]"
+                      name="dateecheance" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[numprelevement]"
+                      dataType="ui1"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[numprelevement]"
+                      name="numprelevement" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Client DIM\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Client DIM.Paths[Nouvelle sortie]"
+              endId="Package\Client DIM\Insert Destination.Inputs[Entrée de destination OLE DB]"
+              name="Nouvelle sortie"
+              startId="Package\Client DIM\Dimension à variation lente.Outputs[Nouvelle sortie]" />
+            <path
+              refId="Package\Client DIM.Paths[Sortie de mises à jour de membre déduit]"
+              endId="Package\Client DIM\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+              name="Sortie de mises à jour de membre déduit"
+              startId="Package\Client DIM\Dimension à variation lente.Outputs[Sortie de mises à jour de membre déduit]" />
+            <path
+              refId="Package\Client DIM.Paths[Sortie de source OLE DB]"
+              endId="Package\Client DIM\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]"
+              name="Sortie de source OLE DB"
+              startId="Package\Client DIM\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Client Table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{85A2D871-1F36-4725-8C47-32421B452D67}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Client Table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Client Table\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Client]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Client Table\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.des]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.des]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Client_ID]"
+                      cachedDataType="ui1"
+                      cachedName="Client_ID"
+                      externalMetadataColumnId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Client ID]"
+                      lineageId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Client_ID]" />
+                    <inputColumn
+                      refId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Client Name]"
+                      lineageId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Total_Transactions]"
+                      cachedDataType="i4"
+                      cachedName="Total_Transactions"
+                      externalMetadataColumnId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Transactions]"
+                      lineageId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Total_Transactions]" />
+                    <inputColumn
+                      refId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Total_Amount]"
+                      cachedDataType="i4"
+                      cachedName="Total_Amount"
+                      externalMetadataColumnId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Amount]"
+                      lineageId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Total_Amount]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Client ID]"
+                      dataType="ui1"
+                      name="Client ID" />
+                    <externalMetadataColumn
+                      refId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Client Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Client Name" />
+                    <externalMetadataColumn
+                      refId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Transactions]"
+                      dataType="i2"
+                      name="Total Transactions" />
+                    <externalMetadataColumn
+                      refId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Amount]"
+                      dataType="i4"
+                      name="Total Amount" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Client Table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Client Table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Client Table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Client Table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Client Table\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Client Table\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[virement ]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT codeclient AS Client_ID, 
+       nom AS Name, 
+       COUNT(*) AS Total_Transactions, 
+       SUM(montant) AS Total_Amount
+FROM dbo.prélèvement
+GROUP BY codeclient, nom
+ORDER BY codeclient;</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Client Table\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.PFA]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Client_ID]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Client_ID]"
+                      lineageId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Client_ID]"
+                      name="Client_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Total_Transactions]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Total_Transactions]"
+                      lineageId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Total_Transactions]"
+                      name="Total_Transactions"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Total_Amount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Total_Amount]"
+                      lineageId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Total_Amount]"
+                      name="Total_Amount"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Client_ID]"
+                      dataType="ui1"
+                      name="Client_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Total_Transactions]"
+                      dataType="i4"
+                      name="Total_Transactions" />
+                    <externalMetadataColumn
+                      refId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Total_Amount]"
+                      dataType="i4"
+                      name="Total_Amount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Client Table\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Client Table\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Client_ID]"
+                      dataType="ui1"
+                      lineageId="Package\Client Table\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Client_ID]"
+                      name="Client_ID" />
+                    <outputColumn
+                      refId="Package\Client Table\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Client Table\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Client Table\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Total_Transactions]"
+                      dataType="i4"
+                      lineageId="Package\Client Table\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Total_Transactions]"
+                      name="Total_Transactions" />
+                    <outputColumn
+                      refId="Package\Client Table\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Total_Amount]"
+                      dataType="i4"
+                      lineageId="Package\Client Table\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Total_Amount]"
+                      name="Total_Amount" />
+                    <outputColumn
+                      refId="Package\Client Table\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Client Table\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Client Table\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Client Table\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Client Table.Paths[Sortie de source OLE DB]"
+              endId="Package\Client Table\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Client Table\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{FCF7709A-553D-4ED7-9C3E-19E2EB826B71}"
+      DTS:From="Package\Client Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Client DIM" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="133.6,41.6"
+          Id="Package\Client Table"
+          TopLeft="254.722208304814,89.2666660459174" />
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\Client DIM"
+          TopLeft="385.83331225233,192.399998662074" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="321.522208304814,130.866666045917">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127.911103947516,61.5333326161567"
+              Start="0,0"
+              End="127.911103947516,54.0333326161567">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.7666663080784" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.7666663080784"
+                    Point2="0,30.7666663080784"
+                    Point3="4,30.7666663080784" />
+                  <mssgle:LineSegment
+                    End="123.911103947516,30.7666663080784" />
+                  <mssgle:CubicBezierSegment
+                    Point1="123.911103947516,30.7666663080784"
+                    Point2="127.911103947516,30.7666663080784"
+                    Point3="127.911103947516,34.7666663080784" />
+                  <mssgle:LineSegment
+                    End="127.911103947516,54.0333326161567" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Client Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Client Table\Source OLE DB"
+          TopLeft="431.666643081441,73.6666661543979" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Client Table\Destination OLE DB"
+          TopLeft="427.499976642431,221.866665123834" />
+        <EdgeLayout
+          Id="Package\Client Table.Paths[Sortie de source OLE DB]"
+          TopLeft="510.383309861936,115.266666154398">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,106.599998969436"
+              Start="0,0"
+              End="0,99.0999989694357">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,99.0999989694357" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Client Table\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Client Table\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Client DIM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Client DIM\Source OLE DB"
+          TopLeft="236.1,5.49999999999995" />
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\Client DIM\Dimension à variation lente"
+          TopLeft="210.1,107.1" />
+        <EdgeLayout
+          Id="Package\Client DIM.Paths[Sortie de source OLE DB]"
+          TopLeft="312.1,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Client DIM\Insert Destination"
+          TopLeft="5.50000000000009,208.7" />
+        <EdgeLayout
+          Id="Package\Client DIM.Paths[Nouvelle sortie]"
+          TopLeft="279.433333333333,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-194.333333333333,60"
+              Start="0,0"
+              End="-194.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2801556420233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2801556420233"
+                    Point2="0,24.2801556420233"
+                    Point3="-4,24.2801556420233" />
+                  <mssgle:LineSegment
+                    End="-190.333333333333,24.2801556420233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-190.333333333333,24.2801556420233"
+                    Point2="-194.333333333333,24.2801556420233"
+                    Point3="-194.333333333333,28.2801556420233" />
+                  <mssgle:LineSegment
+                    End="-194.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-130.303014322917,29.2801556420233,66.2726953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Client DIM\Commande OLE DB"
+          TopLeft="225.7,208.7" />
+        <EdgeLayout
+          Id="Package\Client DIM.Paths[Sortie de mises à jour de membre déduit]"
+          TopLeft="344.766666666667,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-32.6666666666667,60"
+              Start="0,0"
+              End="-32.6666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2801556420233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2801556420233"
+                    Point2="0,24.2801556420233"
+                    Point3="-4,24.2801556420233" />
+                  <mssgle:LineSegment
+                    End="-28.6666666666667,24.2801556420233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-28.6666666666667,24.2801556420233"
+                    Point2="-32.6666666666667,24.2801556420233"
+                    Point3="-32.6666666666667,28.2801556420233" />
+                  <mssgle:LineSegment
+                    End="-32.6666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-107.395384114583,29.2801556420233,182.1241015625,12.2490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Client DIM\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Client DIM\Dimension à variation lente">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{C733A5E7-9D01-4408-ADD4-FD37CB6DCAE7}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Client]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLE DB.Sorties[Sortie de source OLE DB].Colonnes[codeclient]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Client ID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source OLE DB.Sorties[Sortie de source OLE DB].Colonnes[nom]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Client Name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Commande OLE DB&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

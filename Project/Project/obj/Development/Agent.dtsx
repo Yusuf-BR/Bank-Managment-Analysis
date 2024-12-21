@@ -1,0 +1,1062 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/15/2024 9:34:20 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-58MFL3I"
+  DTS:CreatorName="DESKTOP-58MFL3I\PC"
+  DTS:DTSID="{D0348F10-714A-46E0-A079-57ADD762C74E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{D0238293-EB74-4943-8CC4-971EE9E90A36}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BF27EDA3-7634-4745-8E96-3DB0D78BCA3B}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.Project">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=Project;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{BF27EDA3-7634-4745-8E96-3DB0D78BCA3B}DESKTOP-58MFL3I\SQLEXPRESS.Project;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D9F10336-3AB6-4F9B-90B1-E189476DF9F0}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.src">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=src;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{D9F10336-3AB6-4F9B-90B1-E189476DF9F0}DESKTOP-58MFL3I\SQLEXPRESS.src;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load and Create Agent DIM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{8AF66083-D6C4-4B3C-8DCE-998C742F48C9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load and Create Agent DIM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load and Create Agent DIM\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Agent]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load and Create Agent DIM\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load and Create Agent DIM\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load and Create Agent DIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      externalMetadataColumnId="Package\Load and Create Agent DIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      lineageId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].Columns[nom]" />
+                    <inputColumn
+                      refId="Package\Load and Create Agent DIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[posteactuel]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="posteactuel"
+                      externalMetadataColumnId="Package\Load and Create Agent DIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[posteactuel]"
+                      lineageId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].Columns[posteactuel]" />
+                    <inputColumn
+                      refId="Package\Load and Create Agent DIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[date dembauche]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="date dembauche"
+                      externalMetadataColumnId="Package\Load and Create Agent DIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date dembauche]"
+                      lineageId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].Columns[date dembauche]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load and Create Agent DIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[ID Agent]"
+                      dataType="i4"
+                      name="ID Agent" />
+                    <externalMetadataColumn
+                      refId="Package\Load and Create Agent DIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Load and Create Agent DIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[posteactuel]"
+                      dataType="wstr"
+                      length="255"
+                      name="posteactuel" />
+                    <externalMetadataColumn
+                      refId="Package\Load and Create Agent DIM\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date dembauche]"
+                      dataType="dbTimeStamp"
+                      name="date dembauche" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load and Create Agent DIM\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Load and Create Agent DIM\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load and Create Agent DIM\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load and Create Agent DIM\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load and Create Agent DIM\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load and Create Agent DIM\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load and Create Agent DIM\Load Data"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Load Data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[agt]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load and Create Agent DIM\Load Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      length="255"
+                      lineageId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      name="nom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].Columns[posteactuel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].ExternalColumns[posteactuel]"
+                      length="255"
+                      lineageId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].Columns[posteactuel]"
+                      name="posteactuel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].Columns[date dembauche]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].ExternalColumns[date dembauche]"
+                      lineageId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].Columns[date dembauche]"
+                      name="date dembauche"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].ExternalColumns[posteactuel]"
+                      dataType="wstr"
+                      length="255"
+                      name="posteactuel" />
+                    <externalMetadataColumn
+                      refId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB].ExternalColumns[date dembauche]"
+                      dataType="dbTimeStamp"
+                      name="date dembauche" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      name="nom" />
+                    <outputColumn
+                      refId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie d'erreur de source OLE DB].Columns[posteactuel]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie d'erreur de source OLE DB].Columns[posteactuel]"
+                      name="posteactuel" />
+                    <outputColumn
+                      refId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie d'erreur de source OLE DB].Columns[date dembauche]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie d'erreur de source OLE DB].Columns[date dembauche]"
+                      name="date dembauche" />
+                    <outputColumn
+                      refId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load and Create Agent DIM.Paths[Sortie de source OLE DB]"
+              endId="Package\Load and Create Agent DIM\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Load and Create Agent DIM\Load Data.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Remove Duplicate Rows From Original Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{9D4C3463-5FE0-4DC4-B78F-02ECAC2F7F7D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Remove Duplicate Rows From Original Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Clean Agent Data"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[agt]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Inputs[Entrée de destination OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Clean Data.Outputs[Sortie de tri].Columns[nom]" />
+                    <inputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Inputs[Entrée de destination OLE DB].Columns[posteactuel]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="posteactuel"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Inputs[Entrée de destination OLE DB].ExternalColumns[posteactuel]"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Clean Data.Outputs[Sortie de tri].Columns[posteactuel]" />
+                    <inputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Inputs[Entrée de destination OLE DB].Columns[date dembauche]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="date dembauche"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Inputs[Entrée de destination OLE DB].ExternalColumns[date dembauche]"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Clean Data.Outputs[Sortie de tri].Columns[date dembauche]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Inputs[Entrée de destination OLE DB].ExternalColumns[posteactuel]"
+                      dataType="wstr"
+                      length="255"
+                      name="posteactuel" />
+                    <externalMetadataColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Inputs[Entrée de destination OLE DB].ExternalColumns[date dembauche]"
+                      dataType="dbTimeStamp"
+                      name="date dembauche" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Remove Duplicate Rows From Original Data\Clean Data"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Clean Data"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Remove Duplicate Rows From Original Data\Clean Data.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Clean Data.Inputs[Entrée de tri].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].Columns[nom]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Clean Data.Inputs[Entrée de tri].Columns[posteactuel]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="posteactuel"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].Columns[posteactuel]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Clean Data.Inputs[Entrée de tri].Columns[date dembauche]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="date dembauche"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].Columns[date dembauche]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Remove Duplicate Rows From Original Data\Clean Data.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Clean Data.Outputs[Sortie de tri].Columns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Clean Data.Outputs[Sortie de tri].Columns[nom]"
+                      name="nom"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].Columns[nom]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Clean Data.Outputs[Sortie de tri].Columns[posteactuel]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Clean Data.Outputs[Sortie de tri].Columns[posteactuel]"
+                      name="posteactuel"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].Columns[posteactuel]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Clean Data.Outputs[Sortie de tri].Columns[date dembauche]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Clean Data.Outputs[Sortie de tri].Columns[date dembauche]"
+                      name="date dembauche"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].Columns[date dembauche]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Remove Duplicate Rows From Original Data\Load Original Data"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Load Original Data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Feuil4$]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      length="255"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      name="nom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].Columns[posteactuel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].ExternalColumns[posteactuel]"
+                      length="255"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].Columns[posteactuel]"
+                      name="posteactuel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].Columns[date dembauche]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].ExternalColumns[date dembauche]"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].Columns[date dembauche]"
+                      name="date dembauche"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].ExternalColumns[posteactuel]"
+                      dataType="wstr"
+                      length="255"
+                      name="posteactuel" />
+                    <externalMetadataColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].ExternalColumns[date dembauche]"
+                      dataType="dbTimeStamp"
+                      name="date dembauche" />
+                    <externalMetadataColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB].ExternalColumns[F3]"
+                      dataType="wstr"
+                      length="255"
+                      name="F3" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      name="nom" />
+                    <outputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie d'erreur de source OLE DB].Columns[posteactuel]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie d'erreur de source OLE DB].Columns[posteactuel]"
+                      name="posteactuel" />
+                    <outputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie d'erreur de source OLE DB].Columns[date dembauche]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie d'erreur de source OLE DB].Columns[date dembauche]"
+                      name="date dembauche" />
+                    <outputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Remove Duplicate Rows From Original Data.Paths[Sortie de source OLE DB]"
+              endId="Package\Remove Duplicate Rows From Original Data\Clean Data.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\Remove Duplicate Rows From Original Data\Load Original Data.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Remove Duplicate Rows From Original Data.Paths[Sortie de tri]"
+              endId="Package\Remove Duplicate Rows From Original Data\Clean Agent Data.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de tri"
+              startId="Package\Remove Duplicate Rows From Original Data\Clean Data.Outputs[Sortie de tri]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{167619E6-F7EB-4FCA-9344-86250311C710}"
+      DTS:From="Package\Remove Duplicate Rows From Original Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load and Create Agent DIM" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="207.2,41.6"
+          Id="Package\Load and Create Agent DIM"
+          TopLeft="394.166645130351,195.866665304634" />
+        <NodeLayout
+          Size="282.4,41.6"
+          Id="Package\Remove Duplicate Rows From Original Data"
+          TopLeft="352.49998074025,57.1999996022384" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="495.7333129353,98.7999996022384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,97.0666657023956"
+              Start="0,0"
+              End="0,89.5666657023956">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,89.5666657023956" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load and Create Agent DIM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Load and Create Agent DIM\Load Data"
+          TopLeft="450.833308700887,45.9333330139187" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Load and Create Agent DIM\Destination OLE DB"
+          TopLeft="499.166639393404,164.666665521595" />
+        <EdgeLayout
+          Id="Package\Load and Create Agent DIM.Paths[Sortie de source OLE DB]"
+          TopLeft="514.033308700887,87.5333330139187">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70.7333306925166,77.1333325076766"
+              Start="0,0"
+              End="70.7333306925166,69.6333325076766">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5666662538383" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5666662538383"
+                    Point2="0,38.5666662538383"
+                    Point3="4,38.5666662538383" />
+                  <mssgle:LineSegment
+                    End="66.7333306925166,38.5666662538383" />
+                  <mssgle:CubicBezierSegment
+                    Point1="66.7333306925166,38.5666662538383"
+                    Point2="70.7333306925166,38.5666662538383"
+                    Point3="70.7333306925166,42.5666662538383" />
+                  <mssgle:LineSegment
+                    End="70.7333306925166,69.6333325076766" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load and Create Agent DIM\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load and Create Agent DIM\Load Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Remove Duplicate Rows From Original Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\Remove Duplicate Rows From Original Data\Clean Data"
+          TopLeft="527.999992132187,167.999997496605" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Remove Duplicate Rows From Original Data\Load Original Data"
+          TopLeft="481.99999281764,37.9999994337559" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\Remove Duplicate Rows From Original Data\Clean Agent Data"
+          TopLeft="574.999991431832,306.999995425344" />
+        <EdgeLayout
+          Id="Package\Remove Duplicate Rows From Original Data.Paths[Sortie de source OLE DB]"
+          TopLeft="564.39999281764,79.5999994337559">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28.7999993145467,88.3999980628491"
+              Start="0,0"
+              End="28.7999993145467,80.8999980628491">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.1999990314245" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.1999990314245"
+                    Point2="0,44.1999990314245"
+                    Point3="4,44.1999990314245" />
+                  <mssgle:LineSegment
+                    End="24.7999993145467,44.1999990314245" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.7999993145467,44.1999990314245"
+                    Point2="28.7999993145467,44.1999990314245"
+                    Point3="28.7999993145467,48.1999990314245" />
+                  <mssgle:LineSegment
+                    End="28.7999993145467,80.8999980628491" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Remove Duplicate Rows From Original Data.Paths[Sortie de tri]"
+          TopLeft="593.199992132187,209.599997496605">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="61.7999992996454,97.3999979287386"
+              Start="0,0"
+              End="61.7999992996454,89.8999979287386">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.6999989643693" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.6999989643693"
+                    Point2="0,48.6999989643693"
+                    Point3="4,48.6999989643693" />
+                  <mssgle:LineSegment
+                    End="57.7999992996454,48.6999989643693" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.7999992996454,48.6999989643693"
+                    Point2="61.7999992996454,48.6999989643693"
+                    Point3="61.7999992996454,52.6999989643693" />
+                  <mssgle:LineSegment
+                    End="61.7999992996454,89.8999979287386" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Remove Duplicate Rows From Original Data\Load Original Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Remove Duplicate Rows From Original Data\Clean Agent Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

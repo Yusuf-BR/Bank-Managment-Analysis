@@ -1,0 +1,1242 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/15/2024 8:44:51 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-58MFL3I"
+  DTS:CreatorName="DESKTOP-58MFL3I\PC"
+  DTS:DTSID="{A37025F5-6CB5-42FC-80E9-7F5E4B4F544B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Compte"
+  DTS:PackageType="5"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{5BCC0C6F-56C5-4AA8-8B4D-7F8F68EA93C7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B05CD091-337E-41D2-947C-EB3E0E3E886A}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.Project">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=Project;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Compte-{B05CD091-337E-41D2-947C-EB3E0E3E886A}DESKTOP-58MFL3I\SQLEXPRESS.Project;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{341DC746-7A8A-430E-9CC5-235A05F24389}"
+      DTS:ObjectName="DESKTOP-58MFL3I\SQLEXPRESS.src">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-58MFL3I\SQLEXPRESS;Initial Catalog=src;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Compte-{341DC746-7A8A-430E-9CC5-235A05F24389}DESKTOP-58MFL3I\SQLEXPRESS.src;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clean Data(Compte)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Remove Null Values"
+      DTS:DTSID="{825E7786-E466-4B7B-8C85-30988AECE7B9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clean Data(Compte)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{341DC746-7A8A-430E-9CC5-235A05F24389}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="DELETE FROM [cpt]&#xA;WHERE nom IS NULL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Compte DIM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{DA73669D-9A63-4CBB-9BF6-5E091E3DBB60}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Compte DIM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Create Compte DIM\Create Compte DIM in the Project DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Create Compte DIM in the Project DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Compte]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.Project]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      externalMetadataColumnId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      lineageId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].Columns[nom]" />
+                    <inputColumn
+                      refId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB].Columns[type carte]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type carte"
+                      externalMetadataColumnId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type carte]"
+                      lineageId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].Columns[type carte]" />
+                    <inputColumn
+                      refId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB].Columns[nbr de transaction]"
+                      cachedDataType="r8"
+                      cachedName="nbr de transaction"
+                      externalMetadataColumnId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nbr de transaction]"
+                      lineageId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].Columns[nbr de transaction]" />
+                    <inputColumn
+                      refId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB].Columns[cheque bancaire]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="cheque bancaire"
+                      externalMetadataColumnId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB].ExternalColumns[cheque bancaire]"
+                      lineageId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].Columns[cheque bancaire]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB].ExternalColumns[ID Compte]"
+                      dataType="i4"
+                      name="ID Compte" />
+                    <externalMetadataColumn
+                      refId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type carte]"
+                      dataType="wstr"
+                      length="255"
+                      name="type carte" />
+                    <externalMetadataColumn
+                      refId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nbr de transaction]"
+                      dataType="r8"
+                      name="nbr de transaction" />
+                    <externalMetadataColumn
+                      refId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB].ExternalColumns[cheque bancaire]"
+                      dataType="wstr"
+                      length="255"
+                      name="cheque bancaire" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Create Compte DIM\Data From Clean Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Data From Clean Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[cpt]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Create Compte DIM\Data From Clean Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      length="255"
+                      lineageId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      name="nom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].Columns[type carte]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].ExternalColumns[type carte]"
+                      length="255"
+                      lineageId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].Columns[type carte]"
+                      name="type carte"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].Columns[nbr de transaction]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].ExternalColumns[nbr de transaction]"
+                      lineageId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].Columns[nbr de transaction]"
+                      name="nbr de transaction"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].Columns[cheque bancaire]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].ExternalColumns[cheque bancaire]"
+                      length="255"
+                      lineageId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].Columns[cheque bancaire]"
+                      name="cheque bancaire"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].ExternalColumns[type carte]"
+                      dataType="wstr"
+                      length="255"
+                      name="type carte" />
+                    <externalMetadataColumn
+                      refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].ExternalColumns[nbr de transaction]"
+                      dataType="r8"
+                      name="nbr de transaction" />
+                    <externalMetadataColumn
+                      refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB].ExternalColumns[cheque bancaire]"
+                      dataType="wstr"
+                      length="255"
+                      name="cheque bancaire" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      name="nom" />
+                    <outputColumn
+                      refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie d'erreur de source OLE DB].Columns[type carte]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie d'erreur de source OLE DB].Columns[type carte]"
+                      name="type carte" />
+                    <outputColumn
+                      refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie d'erreur de source OLE DB].Columns[nbr de transaction]"
+                      dataType="r8"
+                      lineageId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie d'erreur de source OLE DB].Columns[nbr de transaction]"
+                      name="nbr de transaction" />
+                    <outputColumn
+                      refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie d'erreur de source OLE DB].Columns[cheque bancaire]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie d'erreur de source OLE DB].Columns[cheque bancaire]"
+                      name="cheque bancaire" />
+                    <outputColumn
+                      refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Create Compte DIM.Paths[Sortie de source OLE DB]"
+              endId="Package\Create Compte DIM\Create Compte DIM in the Project DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Create Compte DIM\Data From Clean Source.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{5EEA03A6-AE90-4EF3-BCFD-5B22E4A34297}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Data\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[cpt]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Data\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      lineageId="Package\Load Data\Trier.Outputs[Sortie de tri].Columns[nom]" />
+                    <inputColumn
+                      refId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[type carte]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type carte"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type carte]"
+                      lineageId="Package\Load Data\Trier.Outputs[Sortie de tri].Columns[type carte]" />
+                    <inputColumn
+                      refId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[nbr de transaction]"
+                      cachedDataType="r8"
+                      cachedName="nbr de transaction"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nbr de transaction]"
+                      lineageId="Package\Load Data\Trier.Outputs[Sortie de tri].Columns[nbr de transaction]" />
+                    <inputColumn
+                      refId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[cheque bancaire]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="cheque bancaire"
+                      cachedSortKeyPosition="4"
+                      externalMetadataColumnId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[cheque bancaire]"
+                      lineageId="Package\Load Data\Trier.Outputs[Sortie de tri].Columns[cheque bancaire]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type carte]"
+                      dataType="wstr"
+                      length="255"
+                      name="type carte" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[nbr de transaction]"
+                      dataType="r8"
+                      name="nbr de transaction" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[cheque bancaire]"
+                      dataType="wstr"
+                      length="255"
+                      name="cheque bancaire" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Data\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Data\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Data\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Data\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Data\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Feuil5$]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Data\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-58MFL3I\SQLEXPRESS.src]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      length="255"
+                      lineageId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      name="nom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[type carte]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[type carte]"
+                      length="255"
+                      lineageId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[type carte]"
+                      name="type carte"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nbr de transaction]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nbr de transaction]"
+                      lineageId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nbr de transaction]"
+                      name="nbr de transaction"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[cheque bancaire]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[cheque bancaire]"
+                      length="255"
+                      lineageId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[cheque bancaire]"
+                      name="cheque bancaire"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[type carte]"
+                      dataType="wstr"
+                      length="255"
+                      name="type carte" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[F3]"
+                      dataType="wstr"
+                      length="255"
+                      name="F3" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[nbr de transaction]"
+                      dataType="r8"
+                      name="nbr de transaction" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[F5]"
+                      dataType="wstr"
+                      length="255"
+                      name="F5" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[cheque bancaire]"
+                      dataType="wstr"
+                      length="255"
+                      name="cheque bancaire" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Data\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Data\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      name="nom" />
+                    <outputColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[type carte]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Data\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[type carte]"
+                      name="type carte" />
+                    <outputColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nbr de transaction]"
+                      dataType="r8"
+                      lineageId="Package\Load Data\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[nbr de transaction]"
+                      name="nbr de transaction" />
+                    <outputColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[cheque bancaire]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Data\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[cheque bancaire]"
+                      name="cheque bancaire" />
+                    <outputColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Data\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Data\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Data\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Data\Trier"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load Data\Trier.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Data\Trier.Inputs[Entrée de tri].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nom"
+                      lineageId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Data\Trier.Inputs[Entrée de tri].Columns[type carte]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type carte"
+                      lineageId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[type carte]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Data\Trier.Inputs[Entrée de tri].Columns[nbr de transaction]"
+                      cachedDataType="r8"
+                      cachedName="nbr de transaction"
+                      lineageId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nbr de transaction]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Data\Trier.Inputs[Entrée de tri].Columns[cheque bancaire]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="cheque bancaire"
+                      lineageId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[cheque bancaire]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Data\Trier.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data\Trier.Outputs[Sortie de tri].Columns[nom]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Data\Trier.Outputs[Sortie de tri].Columns[nom]"
+                      name="nom"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nom]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data\Trier.Outputs[Sortie de tri].Columns[type carte]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Data\Trier.Outputs[Sortie de tri].Columns[type carte]"
+                      name="type carte"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[type carte]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data\Trier.Outputs[Sortie de tri].Columns[nbr de transaction]"
+                      dataType="r8"
+                      lineageId="Package\Load Data\Trier.Outputs[Sortie de tri].Columns[nbr de transaction]"
+                      name="nbr de transaction"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[nbr de transaction]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data\Trier.Outputs[Sortie de tri].Columns[cheque bancaire]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Data\Trier.Outputs[Sortie de tri].Columns[cheque bancaire]"
+                      name="cheque bancaire"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[cheque bancaire]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Data.Paths[Sortie de source OLE DB]"
+              endId="Package\Load Data\Trier.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\Load Data\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Load Data.Paths[Sortie de tri]"
+              endId="Package\Load Data\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de tri"
+              startId="Package\Load Data\Trier.Outputs[Sortie de tri]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{812C4612-3522-47DB-A2AE-5E78E8F7A8EB}"
+      DTS:From="Package\Load Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Clean Data(Compte)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{83C599A2-8C4B-4C9E-9306-2CAD740536FE}"
+      DTS:From="Package\Clean Data(Compte)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Create Compte DIM" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Clean Data(Compte)"
+          TopLeft="375.2666485452,112.666665883197" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Create Compte DIM"
+          TopLeft="459.999974866709,227.933331748313" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Load Data"
+          TopLeft="494.166639666591,48.5333329958386" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="557.366639666591,90.1333329958386">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-95.2999911213917,22.5333328873582"
+              Start="0,0"
+              End="-95.2999911213917,15.0333328873582">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.26666644367908" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.26666644367908"
+                    Point2="0,11.2666664436791"
+                    Point3="-4,11.2666664436791" />
+                  <mssgle:LineSegment
+                    End="-91.2999911213917,11.2666664436791" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-91.2999911213917,11.2666664436791"
+                    Point2="-95.2999911213917,11.2666664436791"
+                    Point3="-95.2999911213917,15.2666664436791" />
+                  <mssgle:LineSegment
+                    End="-95.2999911213917,15.0333328873582" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="462.0666485452,154.266665883197">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83.1333263215095,73.6666658651166"
+              Start="0,0"
+              End="83.1333263215095,66.1666658651166">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.8333329325583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.8333329325583"
+                    Point2="0,36.8333329325583"
+                    Point3="4,36.8333329325583" />
+                  <mssgle:LineSegment
+                    End="79.1333263215095,36.8333329325583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="79.1333263215095,36.8333329325583"
+                    Point2="83.1333263215095,36.8333329325583"
+                    Point3="83.1333263215095,40.8333329325583" />
+                  <mssgle:LineSegment
+                    End="83.1333263215095,66.1666658651166" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Create Compte DIM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="251.2,41.6"
+          Id="Package\Create Compte DIM\Create Compte DIM in the Project DB"
+          TopLeft="479.999992847443,171.999997437" />
+        <NodeLayout
+          Size="192.8,41.6"
+          Id="Package\Create Compte DIM\Data From Clean Source"
+          TopLeft="400.999994024634,42.9999993592501" />
+        <EdgeLayout
+          Id="Package\Create Compte DIM.Paths[Sortie de source OLE DB]"
+          TopLeft="497.399994024634,84.5999993592501">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108.199998822808,87.3999980777502"
+              Start="0,0"
+              End="108.199998822808,79.8999980777502">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.6999990388751" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.6999990388751"
+                    Point2="0,43.6999990388751"
+                    Point3="4,43.6999990388751" />
+                  <mssgle:LineSegment
+                    End="104.199998822808,43.6999990388751" />
+                  <mssgle:CubicBezierSegment
+                    Point1="104.199998822808,43.6999990388751"
+                    Point2="108.199998822808,43.6999990388751"
+                    Point3="108.199998822808,47.6999990388751" />
+                  <mssgle:LineSegment
+                    End="108.199998822808,79.8999980777502" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Create Compte DIM\Create Compte DIM in the Project DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Create Compte DIM\Data From Clean Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Load Data\Source OLE DB"
+          TopLeft="452.999993249774,79.9999988079071" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Load Data\Destination OLE DB"
+          TopLeft="604.999990984798,316.999995276332" />
+        <NodeLayout
+          Size="100,41.6"
+          Id="Package\Load Data\Trier"
+          TopLeft="522.999992206693,202.999996975064" />
+        <EdgeLayout
+          Id="Package\Load Data.Paths[Sortie de tri]"
+          TopLeft="572.999992206693,244.599996975064">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117.599998778105,72.3999983012676"
+              Start="0,0"
+              End="117.599998778105,64.8999983012676">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.1999991506338" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.1999991506338"
+                    Point2="0,36.1999991506338"
+                    Point3="4,36.1999991506338" />
+                  <mssgle:LineSegment
+                    End="113.599998778105,36.1999991506338" />
+                  <mssgle:CubicBezierSegment
+                    Point1="113.599998778105,36.1999991506338"
+                    Point2="117.599998778105,36.1999991506338"
+                    Point3="117.599998778105,40.1999991506338" />
+                  <mssgle:LineSegment
+                    End="117.599998778105,64.8999983012676" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Data.Paths[Sortie de source OLE DB]"
+          TopLeft="528.999993249774,121.599998807907">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43.9999989569187,81.3999981671572"
+              Start="0,0"
+              End="43.9999989569187,73.8999981671572">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.6999990835786" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.6999990835786"
+                    Point2="0,40.6999990835786"
+                    Point3="4,40.6999990835786" />
+                  <mssgle:LineSegment
+                    End="39.9999989569187,40.6999990835786" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.9999989569187,40.6999990835786"
+                    Point2="43.9999989569187,40.6999990835786"
+                    Point3="43.9999989569187,44.6999990835786" />
+                  <mssgle:LineSegment
+                    End="43.9999989569187,73.8999981671572" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Data\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Data\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
